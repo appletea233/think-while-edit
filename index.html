@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Thinking-while-Generating: Interleaving Textual Reasoning throughout Visual Generation">
-  <meta name="keywords" content="TWIG, Visual Generation, Multimodal Reasoning, AI">
+  <meta name="keywords" content="TWIG, Visual Generation, Multimodal Reasoning, CVPR, AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Thinking-while-Generating Project Page</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -22,13 +21,11 @@
     .author-block { display: inline-block; margin-right: 15px; }
     .publication-links .button { margin: 5px; border-radius: 20px; }
     .teaser-section { padding: 2rem 0; }
-    .teaser-image { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .figure-img { width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #fff; margin-bottom: 15px;}
     .content h2 { text-align: center; font-family: 'Google Sans', sans-serif; margin-top: 3rem; margin-bottom: 1.5rem; }
     .content h3 { font-family: 'Google Sans', sans-serif; margin-top: 1.5rem; }
-    .bibtex-section { background-color: #f5f5f5; padding: 20px; border-radius: 5px; overflow-x: auto; }
-    .results-image { border-radius: 10px; margin: 10px 0; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    .method-box { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; height: 100%; }
     footer { background-color: #fff; padding: 3rem 1.5rem; margin-top: 3rem; }
-    .method-box { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px;}
   </style>
 </head>
 <body>
@@ -38,24 +35,15 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          
           <h1 class="title is-1 publication-title">
             Thinking-while-Generating:<br>
             Interleaving Textual Reasoning throughout Visual Generation
           </h1>
-          
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Author Name 1</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Author Name 2</a><sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <a href="#">Author Name 3</a><sup>2</sup>
-            </span>
+            <span class="author-block"><a href="#">Author Name 1</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Author Name 2</a><sup>1</sup>,</span>
+            <span class="author-block"><a href="#">Author Name 3</a><sup>2</sup></span>
           </div>
-
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Institution Name One,</span>
             <span class="author-block"><sup>2</sup>Institution Name Two</span>
@@ -87,7 +75,6 @@
               </a>
             </span>
           </div>
-
         </div>
       </div>
     </div>
@@ -98,9 +85,9 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="static/images/teaser.png" class="teaser-image" alt="Thinking-while-Generating Overview" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'background:#ddd;height:300px;display:flex;align-items:center;justify-content:center;border-radius:10px;\'>[Insert Teaser Image / Figure 1 Here]</div>');"/>
-        <h2 class="subtitle has-text-centered" style="margin-top: 15px;">
-          <b>Thinking-while-Generating (TWIG)</b> interleaves textual reasoning (Thinking) with visual synthesis (Generating) and region-level refinement (Reflecting) in a single unified framework.
+        <img src="static/images/teaser.png" class="figure-img" alt="Teaser Image"/>
+        <h2 class="subtitle has-text-centered" style="margin-top: 10px; font-size: 1.1rem;">
+          <b>Thinking-while-Generating (TWIG)</b> interleaves textual thoughts with visual generation steps for on-the-fly guidance.
         </h2>
       </div>
     </div>
@@ -114,11 +101,17 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            [cite_start]Recent advances in visual generation have increasingly explored the integration of reasoning capabilities[cite: 43]. [cite_start]However, existing methods typically incorporate textual reasoning either before generation (as pre-planning) or after (as post-refinement), lacking on-the-fly multimodal interaction during the generation process itself[cite: 44].
+            Recent advances in visual generation have increasingly explored the integration of reasoning capabilities. However, existing methods typically incorporate textual reasoning either before generation (as pre-planning) or after (as post-refinement).
           </p>
           <p>
-            [cite_start]To address this, we introduce <b>Thinking-while-Generating (TWIG)</b>, the first interleaved framework that enables co-evolving textual reasoning throughout the visual generation process[cite: 45]. [cite_start]As the visual content is progressively generated, textual reasoning is interleaved to both guide upcoming local regions and reflect on previously synthesized ones[cite: 46]. [cite_start]We investigate three strategies to implement this framework: zero-shot prompting, supervised fine-tuning (SFT) on our curated <b>TWIG-50K</b> dataset, and reinforcement learning via a customized <b>TWIG-GRPO</b> strategy[cite: 48]. [cite_start]Our experiments demonstrate that TWIG produces more context-aware and semantically rich visual outputs compared to existing baselines[cite: 47].
+            We introduce <b>Thinking-while-Generating (TWIG)</b>, an interleaved framework that enables co-evolving textual reasoning throughout the visual generation process.
           </p>
+          <figure class="image" style="margin: 20px 0;">
+            <img src="static/images/motivation.png" class="figure-img" alt="Motivation Comparison">
+            <figcaption style="text-align: center; color: #666; font-size: 0.9rem;">
+              Comparison of "Think-before", "Think-after", and our "Thinking-while-Generating" paradigms.
+            </figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -130,40 +123,34 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">The TWIG Framework</h2>
+        
+        <figure class="image" style="margin-bottom: 30px;">
+            <img src="static/images/pipeline.png" class="figure-img" alt="TWIG Pipeline">
+        </figure>
+
         <div class="content has-text-justified">
           <p>
-            [cite_start]Our framework interleaves textual reasoning with visual generation through three core schemes, implemented using a Unified Language-Model (ULM)[cite: 276]:
+            Our framework interleaves textual reasoning with visual generation through three core schemes:
           </p>
-          
           <div class="columns is-multiline">
             <div class="column is-4">
               <div class="method-box">
-                <h3 class="title is-5"><i class="far fa-clock"></i> When to Think</h3>
-                <p>
-                  [cite_start]The model determines an interleaved reasoning schedule, decoupling generation into smaller, controllable sub-tasks (visual regions)[cite: 281]. [cite_start]We utilize a static schedule ($K=3$) targeting upper, central, and lower image regions[cite: 301].
-                </p>
+                <h3 class="title is-5" style="margin-top: 0;"><i class="far fa-clock"></i> When to Think</h3>
+                <p>Decoupling generation into controllable sub-tasks (visual regions) with a reasoning schedule.</p>
               </div>
             </div>
             <div class="column is-4">
               <div class="method-box">
-                <h3 class="title is-5"><i class="far fa-comment-dots"></i> What to Say</h3>
-                <p>
-                  [cite_start]At each step, the model generates a textual thought serving as a localized sub-prompt[cite: 303]. [cite_start]This thought is conditioned on the input prompt and previous visual content, providing fine-grained guidance for the next segment[cite: 304].
-                </p>
+                <h3 class="title is-5" style="margin-top: 0;"><i class="far fa-comment-dots"></i> What to Say</h3>
+                <p>Generating textual thoughts as localized sub-prompts conditioned on previous visual content.</p>
               </div>
             </div>
             <div class="column is-4">
               <div class="method-box">
-                <h3 class="title is-5"><i class="fas fa-sync-alt"></i> How to Refine</h3>
-                <p>
-                  [cite_start]After generating a region, the model performs an immediate "reflection" step[cite: 409]. It generates a critic score and a revised thought. [cite_start]If the score is low, it triggers local re-generation to correct errors on the fly[cite: 411].
-                </p>
+                <h3 class="title is-5" style="margin-top: 0;"><i class="fas fa-sync-alt"></i> How to Refine</h3>
+                <p>Conducting immediate "reflection" to critique and re-generate regions if necessary.</p>
               </div>
             </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 20px;">
-             <img src="static/images/method.png" class="results-image" alt="Method Overview" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'background:#eee;height:250px;display:flex;align-items:center;justify-content:center;border-radius:10px;\'>[Insert Method Figure / Figure 3 Here]</div>');"/>
           </div>
         </div>
       </div>
@@ -173,20 +160,21 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Training Strategies</h2>
-    <div class="content has-text-justified">
-      [cite_start]<p>We explore three progressive implementation routes to unlock the potential of interleaved reasoning[cite: 175]:</p>
-      <ul>
-        <li>
-          [cite_start]<b>Zero-Shot Prompting (TWIG-ZS):</b> We craft interleave-aware prompts to elicit global plans and reasoning thoughts without parameter updates[cite: 176].
-        </li>
-        <li>
-          [cite_start]<b>Supervised Fine-Tuning (TWIG-SFT):</b> We curated <b>TWIG-50K</b>, a high-quality dataset with 50,000 samples decomposed into thinking, generation, and reflection tasks[cite: 178].
-        </li>
-        <li>
-          [cite_start]<b>Reinforcement Learning (TWIG-RL):</b> We employ a <b>TWIG-GRPO</b> algorithm to optimize the policy using a reward ensemble (Human Preference, Object Grounding, VQA, and LMM Alignment)[cite: 179, 713].
-        </li>
-      </ul>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">TWIG-50K Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            To support supervised fine-tuning, we curated <b>TWIG-50K</b>, a high-quality dataset containing 50,000 samples. The dataset is decomposed into thinking, generation, and reflection tasks to provide structured supervision.
+          </p>
+        </div>
+        <figure class="image" style="width: 60%; margin: 0 auto;">
+           <img src="static/images/flower1.png" class="figure-img" alt="TWIG-50K Dataset Sample">
+           <figcaption style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 5px;">
+              Visualization of dataset composition and samples from TWIG-50K.
+           </figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -195,40 +183,25 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Experimental Results</h2>
         
-        <h3 class="title is-4">Quantitative Analysis</h3>
-        <div class="content has-text-justified">
-          <p>
-            [cite_start]Experiments on <b>T2I-CompBench</b> show that TWIG significantly outperforms the baseline Janus-Pro-7B[cite: 259].
+        <h2 class="title is-3 has-text-centered">Reflection & Refinement</h2>
+        <div class="content has-text-centered" style="margin-bottom: 50px;">
+          <p class="has-text-justified">
+             A key capability of TWIG is the ability to reflect on generated content. The figure below illustrates how our model critiques the current canvas and performs local corrections.
           </p>
-          <ul>
-            [cite_start]<li><b>Zero-Shot:</b> TWIG-ZS achieves <b>+9.52%</b> improvement in Attribute Binding (Color) and <b>+12.57%</b> in Complex settings compared to the baseline[cite: 476].</li>
-            [cite_start]<li><b>RL Enhancement:</b> TWIG-RL further pushes the boundary, achieving substantial gains across spatial and attribute binding metrics (e.g., exceeding <b>+5%</b> improvement over SFT)[cite: 716].</li>
-          </ul>
+          <img src="static/images/reflect.png" class="figure-img" alt="Reflection Capability" style="width: 80%;">
         </div>
 
-        <h3 class="title is-4">Qualitative Comparison</h3>
-        <div class="content has-text-justified">
-          <p>
-            Our method demonstrates progressive improvements in compositional fidelity, object counting, and visual realism. [cite_start]The reflection mechanism effectively corrects spatial misalignments and shadow inconsistencies during the generation process[cite: 790, 791].
+        <h2 class="title is-3 has-text-centered">Qualitative Results</h2>
+        <div class="content has-text-centered">
+          <p class="has-text-justified">
+            Comparison with baselines on complex prompts involving spatial relationships and attribute binding. Our method demonstrates superior semantic alignment.
           </p>
-          <img src="static/images/results.png" class="results-image" alt="Qualitative Results" onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', '<div style=\'background:#eee;height:300px;display:flex;align-items:center;justify-content:center;border-radius:10px;\'>[Insert Qualitative Comparison / Figure 5 Here]</div>');"/>
+          <img src="static/images/comp.png" class="figure-img" alt="Qualitative Comparison">
         </div>
+
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{anonymous2025twig,
-  title={Thinking-while-Generating: Interleaving Textual Reasoning throughout Visual Generation},
-  author={Anonymous Authors},
-  journal={CVPR Submission 17669},
-  year={2025}
-}</code></pre>
   </div>
 </section>
 
