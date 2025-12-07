@@ -175,8 +175,8 @@
       margin: 15px auto 0 auto;
     }
 
-    /* --- Method Grid --- */
-    .method-grid {
+/* --- Method Grid --- */
+.method-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr); 
       gap: 20px;
@@ -191,7 +191,12 @@
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
+      /* 核心修改：确保卡片高度填满 */
+      height: 100%; 
+      box-sizing: border-box;
+      position: relative; /* 如果需要绝对定位角标 */
     }
+
     .method-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
@@ -205,21 +210,13 @@
       margin-top: 0; 
       font-size: 1.25rem; 
       color: #333; 
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      min-height: 1.5em; /* 可选：如果标题行数不一致，可以设置最小高度 */
     }
-    
-    .badge {
-      display: inline-block; 
-      padding: 4px 10px; 
-      border-radius: 6px;
-      font-size: 0.75rem; 
-      font-weight: bold; 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px;
-      margin-bottom: 10px; 
-      color: #fff;
-      white-space: nowrap;
-      width: fit-content;
+
+    .method-card p {
+      flex-grow: 1; /* 让段落填满剩余空间，使底部元素对齐 */
+      margin-bottom: 0;
     }
     
     /* Visualizations */
@@ -274,7 +271,7 @@
     <h1 class="title">
         <div class="main-title-row">
           <img src="static/images/logo.png" alt="Logo" class="project-logo">
-          <span class="title-main">EditThinker:</span>
+          <span class="title-main">EditThinker</span>
         </div>
         <span class="title-sub">Unlocking Iterative Reasoning for Any Image Editor</span>
     </h1>
