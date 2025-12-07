@@ -175,8 +175,8 @@
       margin: 15px auto 0 auto;
     }
 
-/* --- Method Grid --- */
-.method-grid {
+    /* --- Method Grid --- */
+    .method-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr); 
       gap: 20px;
@@ -191,12 +191,7 @@
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
-      /* 核心修改：确保卡片高度填满 */
-      height: 100%; 
-      box-sizing: border-box;
-      position: relative; /* 如果需要绝对定位角标 */
     }
-
     .method-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
@@ -210,13 +205,21 @@
       margin-top: 0; 
       font-size: 1.25rem; 
       color: #333; 
-      margin-bottom: 15px;
-      min-height: 1.5em; /* 可选：如果标题行数不一致，可以设置最小高度 */
+      margin-bottom: 10px;
     }
-
-    .method-card p {
-      flex-grow: 1; /* 让段落填满剩余空间，使底部元素对齐 */
-      margin-bottom: 0;
+    
+    .badge {
+      display: inline-block; 
+      padding: 4px 10px; 
+      border-radius: 6px;
+      font-size: 0.75rem; 
+      font-weight: bold; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px;
+      margin-bottom: 10px; 
+      color: #fff;
+      white-space: nowrap;
+      width: fit-content;
     }
     
     /* Visualizations */
@@ -360,6 +363,33 @@
       <strong>The Pipeline of Think-while-Edit.</strong> EditThinker is a multi-round instruction iterative refinement framework. In the first round, the original image $I_{src}$ and instruction $T_s$ are fed into an editor. The output is fed into EditThinker, which generates the edit score $S_t$, refined prompt $T_t$, and reasoning process $R_t$.
     </div>
 
+    <div class="method-grid">
+        <div class="method-card method-think">
+          <span class="badge" style="background: var(--color-think); color: #555;">Critique</span>
+          <h3>Evaluate Results</h3>
+          <p>
+            At iteration $t$, EditThinker receives the state $(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s)$ and jointly evaluates the previous edit, generating critique score $S_t$ and reasoning process $R_t$.
+            <br><br>
+          </p>
+        </div>
+    
+        <div class="method-card method-gen">
+          <span class="badge" style="background: var(--color-gen); color: #FFF;">Refine</span>
+          <h3>Refine Instructions</h3>
+          <p>
+            Based on the critique, EditThinker generates a refined instruction $T_t$ that addresses identified deficiencies, creating an explicit chain of thought that grounds instruction refinement in visual critique.
+          </p>
+        </div>
+    
+        <div class="method-card method-ref">
+          <span class="badge" style="background: var(--color-ref); color: #FFF;">Repeat</span>
+          <h3>Iterate Until Satisfactory</h3>
+          <p>
+            The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success.
+            <br><br>
+          </p>
+        </div>
+      </div>
   </div>
 
   <div class="section">
