@@ -27,14 +27,17 @@
 
   <style>
     :root {
-      --color-primary: #F6B36A;
-      --color-primary-dark: #E67E22;
+      /* --- Theme Color: Blue --- */
+      --color-primary: #64B5F6;      /* Light Blue for highlights/accents */
+      --color-primary-dark: #1565C0; /* Deep Blue for text/hover */
+      
       --color-text: #2c3e50;
       --color-bg: #FAFAFA;
       
-      --color-think: #F3E060;
-      --color-gen: #4FB6B8;
-      --color-ref: #9C7BD8;
+      /* Method Card Colors (Adjusted slightly to match cool tone) */
+      --color-think: #FDD835; /* Keep Yellow for 'Think' distinctness */
+      --color-gen: #4DD0E1;   /* Cyan */
+      --color-ref: #7986CB;   /* Indigo */
     }
 
     html { scroll-behavior: smooth; }
@@ -82,7 +85,7 @@
     }
     
     .title-main { 
-      color: #E67E22; 
+      color: var(--color-primary-dark); 
     }
     .title-sub { 
       color: #000000; 
@@ -120,7 +123,7 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     .link-block a:hover {
-      background: var(--color-primary);
+      background: var(--color-primary-dark); /* Changed to Blue */
       transform: translateY(-2px);
       box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     }
@@ -218,6 +221,29 @@
       white-space: nowrap;
       width: fit-content;
     }
+    
+    /* Visualizations */
+    .vis-card {
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform 0.3s;
+    }
+    .vis-card:hover { transform: scale(1.005); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+    .vis-header {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      padding: 6px 18px;
+      border-radius: 50px;
+    }
+
 
     /* BibTeX */
     pre {
@@ -255,7 +281,7 @@
     
     <div class="author-block">
       <span><a href="#">Hongyu Li</a><sup>1,2</sup></span>,
-      <span><a href="#">Manyuan Zhang</a><sup>2</sup><sup style="color: #E67E22;">†</sup></span>,
+      <span><a href="#">Manyuan Zhang</a><sup>2</sup><sup style="color: var(--color-primary-dark);">†</sup></span>,
       <span>Dian Zheng<sup>2,3</sup></span>,
       <span>Ziyu Guo<sup>2,4</sup></span>,
       <span>Yimeng Jia<sup>2</sup></span>
@@ -273,7 +299,7 @@
       <span>Xunliang Cai<sup>2</sup></span>,
       <span>Linjiang Huang<sup>1</sup></span>,
       <span>Hongsheng Li<sup>3</sup></span>,
-      <span>Si Liu<sup>1</sup><sup style="color: #E67E22;">*</sup></span>
+      <span>Si Liu<sup>1</sup><sup style="color: var(--color-primary-dark);">*</sup></span>
     </div>
 
     <div class="affiliation-block">
@@ -305,10 +331,10 @@
 
   <div class="section">
     <div class="image-container">
-      <img src="static/images/vis_all.png" alt="EditThinker Results Visualization">
+      <img src="static/images/demo1.gif" alt="EditThinker Demo GIF">
     </div>
     <div class="caption">
-      <strong>Qualitative Results of EditThinker.</strong> Our framework significantly improves instruction-following capability across diverse editing scenarios by iteratively critiquing and refining instructions.
+      <strong>Demo of EditThinker.</strong> The animation illustrates the multi-turn <em>Think-while-Edit</em> process. The model iteratively critiques the current generation, reasons about the gap, and refines the prompt until the stop signal is triggered.
     </div>
   </div>
 
@@ -349,7 +375,7 @@
         </div>
     
         <div class="method-card method-gen">
-          <span class="badge" style="background: var(--color-gen);">Refine</span>
+          <span class="badge" style="background: var(--color-gen); color: #FFF;">Refine</span>
           <h3>Refine Instructions</h3>
           <p>
             Based on the critique, EditThinker generates a refined instruction $T_t$ that addresses identified deficiencies, creating an explicit chain of thought that grounds instruction refinement in visual critique.
@@ -357,7 +383,7 @@
         </div>
     
         <div class="method-card method-ref">
-          <span class="badge" style="background: var(--color-ref);">Repeat</span>
+          <span class="badge" style="background: var(--color-ref); color: #FFF;">Repeat</span>
           <h3>Iterate Until Satisfactory</h3>
           <p>
             The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success.
@@ -391,14 +417,33 @@
     </div>
   </div>
 
-  <div class="section">
-    <h2 class="section-title">Reasoning Process Visualization</h2>
-    <div class="image-container">
-      <img src="static/images/vis_reason.png" alt="Reasoning Visualization">
+  <div class="section" style="background: transparent; box-shadow: none; padding: 0;">
+    <h2 class="section-title">Visualizations</h2>
+
+    <div class="vis-card">
+      <div class="vis-header" style="background: #E1F5FE; color: #0288D1;">
+        <i class="fas fa-brain"></i> The Thinking Process
+      </div>
+      <div class="image-container">
+        <img src="static/images/vis_reason.png" alt="Reasoning Visualization">
+      </div>
+      <div class="caption">
+        <strong>Thinking Process Visualization.</strong> EditThinker iteratively critiques errors (e.g., missing objects, wrong attributes) and refines the prompt until the user instruction is fulfilled.
+      </div>
     </div>
-    <div class="caption">
-      <strong>The Thinking Process.</strong> Visualization of EditThinker's reasoning traces and intermediate editing results. The model iteratively critiques errors (e.g., missing objects, wrong attributes) and refines the prompt until the user instruction is fulfilled.
+
+    <div class="vis-card">
+      <div class="vis-header" style="background: #FFF3E0; color: #E67E22;">
+         <i class="fas fa-images"></i> Qualitative Comparison
+      </div>
+      <div class="image-container">
+        <img src="static/images/vis_all.png" alt="EditThinker Qualitative Results">
+      </div>
+      <div class="caption">
+        <strong>Qualitative Results.</strong> Our framework significantly improves instruction-following capability across diverse editing scenarios by iteratively critiquing and refining instructions compared to baseline models.
+      </div>
     </div>
+
   </div>
 
   <div class="section">
