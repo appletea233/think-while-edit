@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="description" content="EditThinker: Unlocking Iterative Reasoning for Any Image Editor">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EditThinker</title>
+  <title>EditThinker: Unlocking Iterative Reasoning for Any Image Editor</title>
 
-  <link rel="icon" href="static/images/logo4.png" type="image/png">
+  <link rel="icon" href="static/images/logo.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans:400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -53,7 +53,7 @@
       padding: 40px 20px;
     }
 
-    /* --- Header Layout Fixed --- */
+    /* --- Header Layout --- */
     .header-container { 
       text-align: center; 
       margin-bottom: 40px; 
@@ -68,29 +68,28 @@
 
     /* Flex Container for Logo + Main Title */
     .main-title-row {
-      display: flex;            /* Enable Flexbox */
-      align-items: center;      /* Vertically center */
-      justify-content: center;  /* Horizontally center */
-      gap: 15px;                /* Space between logo and text */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
       margin-bottom: 5px;
     }
 
     .project-logo {
-      /* Removed absolute positioning that was hiding the image */
-      width: auto;      /* Width determined by height */
-      height: 1.5em;    /* Match text size approx */
+      width: auto;
+      height: 1.5em;
       object-fit: contain;
     }
     
     .title-main { 
       color: #E67E22; 
-      font-style: italic; 
     }
     .title-sub { 
       color: #000000; 
-      font-size: 0.75em; 
+      font-size: 0.65em; 
       display: block; 
       margin-top: 8px; 
+      font-weight: 500;
     }
 
     .author-block { font-size: 1.15rem; margin-bottom: 8px; }
@@ -163,8 +162,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
     
-    .teaser-img { width: 45%; } 
-    
     .caption {
       font-size: 0.95rem;
       color: #666;
@@ -191,7 +188,6 @@
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
-      min-width: 0; 
     }
     .method-card:hover {
       transform: translateY(-3px);
@@ -209,14 +205,6 @@
       margin-bottom: 10px;
     }
     
-    .method-card p {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 10px;
-      flex-grow: 1; 
-      word-wrap: break-word; 
-    }
-
     .badge {
       display: inline-block; 
       padding: 4px 10px; 
@@ -231,28 +219,6 @@
       width: fit-content;
     }
 
-    /* Visualizations */
-    .vis-card {
-      margin-bottom: 40px;
-      padding: 30px;
-      border-radius: 16px;
-      text-align: center;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-      transition: transform 0.3s;
-    }
-    .vis-card:hover { transform: scale(1.005); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
-
-    .vis-header {
-      display: inline-block;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      padding: 6px 18px;
-      border-radius: 50px;
-    }
-
     /* BibTeX */
     pre {
       background-color: #2d2d2d;
@@ -263,12 +229,12 @@
       overflow-x: auto;
       line-height: 1.5;
       border: 1px solid #444;
+      text-align: left;
     }
 
     @media (max-width: 768px) {
-      .main-title-row { flex-direction: column; } /* Stack logo on mobile */
+      .main-title-row { flex-direction: column; }
       .title { font-size: 2rem; }
-      .teaser-img { width: 90%; }
       .container { padding: 20px 15px; }
       .method-grid { grid-template-columns: 1fr; }
     }
@@ -281,17 +247,17 @@
   <div class="header-container">
     <h1 class="title">
         <div class="main-title-row">
-          <img src="static/images/logo4.png" alt="Logo" class="project-logo" style="height: 1.5em; width: auto;">
+          <img src="static/images/logo.png" alt="Logo" class="project-logo">
           <span class="title-main">EditThinker:</span>
         </div>
         <span class="title-sub">Unlocking Iterative Reasoning for Any Image Editor</span>
     </h1>
     
     <div class="author-block">
-      <span><a href="https://scholar.google.cz/citations?user=PccL82sAAAAJ" target="_blank">Hongyu Li</a><sup>1,2</sup></span>,
-      <span><a href="https://manyuan97.github.io/" target="_blank">Manyuan Zhang</a><sup>2</sup><sup style="color: #E67E22;">†</sup></span>,
+      <span><a href="#">Hongyu Li</a><sup>1,2</sup></span>,
+      <span><a href="#">Manyuan Zhang</a><sup>2</sup><sup style="color: #E67E22;">†</sup></span>,
       <span>Dian Zheng<sup>2,3</sup></span>,
-      <span><a href="https://ziyuguo99.github.io/" target="_blank">Ziyu Guo</a><sup>2,4</sup></span>,
+      <span>Ziyu Guo<sup>2,4</sup></span>,
       <span>Yimeng Jia<sup>2</sup></span>
     </div>
     
@@ -299,8 +265,8 @@
       <span>Kaituo Feng<sup>2,3</sup></span>,
       <span>Hao Yu<sup>5</sup></span>,
       <span>Yexin Liu<sup>2</sup></span>,
-      <span><a href="https://scholar.google.com/citations?user=m4f3F4cAAAAJ" target="_blank">Yan Feng</a><sup>2</sup></span>,
-      <span><a href="https://www.linkedin.com/in/peng-pei-7584a839/" target="_blank">Peng Pei</a><sup>2</sup></span>
+      <span>Yan Feng<sup>2</sup></span>,
+      <span>Peng Pei<sup>2</sup></span>
     </div>
 
     <div class="author-block">
@@ -319,7 +285,7 @@
       <span class="link-block">
         <a href="#" target="_blank">
           <span class="icon"><i class="fas fa-file-pdf"></i></span>
-          <span>Paper</span>
+          <span>Paper (CVPR 2026)</span>
         </a>
       </span>
       <span class="link-block">
@@ -331,7 +297,7 @@
       <span class="link-block">
         <a href="#" target="_blank">
           <span class="icon"><i class="fas fa-database"></i></span>
-          <span>ThinkEdit-140K Dataset</span>
+          <span>ThinkEdit-140K</span>
         </a>
       </span>
     </div>
@@ -339,10 +305,10 @@
 
   <div class="section">
     <div class="image-container">
-      <img src="static/images/teaser.gif" alt="Teaser Image" class="teaser-img">
+      <img src="static/images/vis_all.png" alt="EditThinker Results Visualization">
     </div>
     <div class="caption">
-      <strong>Overview of EditThinker.</strong> Our multi-turn <em>Think-while-Edit</em> pipeline iteratively critiques, refines, and repeats the editing instruction, significantly improving instruction-following capability for any image editor.
+      <strong>Qualitative Results of EditThinker.</strong> Our framework significantly improves instruction-following capability across diverse editing scenarios by iteratively critiquing and refining instructions.
     </div>
   </div>
 
@@ -350,37 +316,25 @@
     <h2 class="section-title">Abstract</h2>
     <div class="content-text">
       <p>
-        Instruction-based image editing has emerged as a prominent research area, which, benefiting from image generation foundation models, have achieved high aesthetic quality, making instruction-following capability the primary challenge. Existing approaches improve instruction adherence via supervised or reinforcement learning, yet single-turn success rates remain limited due to inherent stochasticity and a lack of deliberation.
+        Instruction-based image editing has emerged as a prominent research area. Benefiting from image generation foundation models, it has achieved high aesthetic quality, making instruction-following capability the primary challenge. Existing approaches improve instruction adherence via supervised or reinforcement learning, yet single-turn success rates remain limited due to inherent stochasticity and a lack of deliberation.
       </p>
       <p>
-        In this work, we propose a deliberative editing framework to "think" while they edit, which simulates the human cognitive loop by iteratively executing a <strong><em>Think-while-Edit</em></strong> cycle: <strong>Critiquing</strong> results and <strong>Refining</strong> instructions, followed by <strong>Repeating</strong> the generation until satisfactory. Specifically, we train a single MLLM, <span class="highlight-term">EditThinker</span>, to act as the reasoning engine of this framework, which jointly produce the critique score, reasoning process, and refined instructions. We employ reinforcement learning to align the EditThinker's thinking with its editing, thereby generating more targeted instruction improvements.
+        In this work, we propose a deliberative editing framework to "think" while they edit, which simulates the human cognitive loop by iteratively executing a <strong><em>Think-while-Edit</em></strong> cycle: <span class="highlight-term">Critiquing</span> results and <span class="highlight-term">Refining</span> instructions, followed by <span class="highlight-term">Repeating</span> the generation until satisfactory. Specifically, we train a single MLLM, <strong>EditThinker</strong>, to act as the reasoning engine of this framework, which jointly produces the critique score, reasoning process, and refined instructions. We employ reinforcement learning to align the EditThinker's thinking with its editing, thereby generating more targeted instruction improvements.
       </p>
       <p>
-        Extensive experiments on four benchmarks demonstrate that our approach significantly improves the instruction-following capability of any image editing model by a large margin. 
+        Extensive experiments on four benchmarks demonstrate that our approach significantly improves the instruction-following capability of any image editing model by a large margin. We will release our data construction framework, datasets, and models to benefit the community.
       </p>
     </div>
   </div>
 
   <div class="section">
-    <div class="image-container">
-      <img src="static/images/intro.png" alt="Intro Comparison" style="width: 100%;">
-    </div>
-    <div class="caption">
-        <strong>Comparison of Editing Paradigms:</strong><br>
-        (a) <span style="color: #0288D1; font-weight: bold;">Think-before-Edit</span> rewrites an optimized prompt using only the source image, limiting iterative refinement.<br>
-        (b) <span style="color: #27ae60; font-weight: bold;">Single-turn Edit</span> directly produces the final edited image without deliberation, lacking self-correction capability.<br>
-        (c) Our <span style="color: #E67E22; font-weight: bold;">Think-while-Edit</span> iteratively critiques results, refines instructions, and repeats generation until satisfactory outcomes.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">Framework</h2>
+    <h2 class="section-title">Framework: Think-while-Edit</h2>
     
     <div class="image-container">
-      <img src="static/images/pipeline.png" alt="EditThinker Pipeline">
+      <img src="static/images/fig2.png" alt="EditThinker Pipeline">
     </div>
     <div class="caption">
-      <strong>Overall Pipeline.</strong> EditThinker decouples editing into two roles: a Thinker for judging and reasoning, and an Editor for execution. The Thinker iteratively critiques, refines, and repeats until satisfactory.
+      <strong>The Pipeline of Think-while-Edit.</strong> EditThinker is a multi-round instruction iterative refinement framework. In the first round, the original image $I_{src}$ and instruction $T_s$ are fed into an editor. The output is fed into EditThinker, which generates the edit score $S_t$, refined prompt $T_t$, and reasoning process $R_t$.
     </div>
 
     <div class="method-grid">
@@ -390,7 +344,7 @@
           <p>
             At iteration $t$, EditThinker receives the state $(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s)$ and jointly evaluates the previous edit, generating critique score $S_t$ and reasoning process $R_t$.
             <br><br>
-            $$ S_t = \text{EditThinker}(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s) $$
+            $$ (S_t, R_t, T_t) = \text{Thinker}(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s) $$
           </p>
         </div>
     
@@ -399,8 +353,6 @@
           <h3>Refine Instructions</h3>
           <p>
             Based on the critique, EditThinker generates a refined instruction $T_t$ that addresses identified deficiencies, creating an explicit chain of thought that grounds instruction refinement in visual critique.
-            <br><br>
-            $$ T_t = \text{EditThinker}(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s) $$
           </p>
         </div>
     
@@ -408,7 +360,7 @@
           <span class="badge" style="background: var(--color-ref);">Repeat</span>
           <h3>Iterate Until Satisfactory</h3>
           <p>
-            The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success or maximum iterations are reached.
+            The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success.
             <br><br>
             $$ I_{edit}^t = \text{Editor}(I_{src}, T_t) $$
           </p>
@@ -416,45 +368,37 @@
       </div>
   </div>
 
-  <div class="section" id="visuals" style="background: transparent; box-shadow: none; padding: 0;">
-    <h2 class="section-title">Visualizations</h2>
-
-    <div class="vis-card">
-      <div class="vis-header" style="background: #FFF3E0; color: #E67E22;">
-        <i class="fas fa-exchange-alt"></i> Qualitative Comparison
-      </div>
-      <div class="image-container">
-        <img src="static/images/comp.png" alt="Comparison">
-      </div>
-      <div class="caption">
-        Comparison of baseline editing models (FLUX.1-Kontext, OmniGen2, Qwen-Image-Edit) with and without <strong>EditThinker</strong>. Our framework demonstrates consistent improvements in instruction-following capability across diverse editing scenarios.
-      </div>
+  <div class="section">
+    <h2 class="section-title">Data Construction: ThinkEdit-140K</h2>
+    <div class="image-container">
+      <img src="static/images/fig3.png" alt="Data Construction Pipeline">
     </div>
-
-    <div class="vis-card">
-      <div class="vis-header" style="background: #F3E5F5; color: #8E24AA;">
-        <i class="fas fa-magic"></i> Reflection Capacity
-      </div>
-      <div class="image-container">
-        <img src="static/images/reflect.png" alt="Reflection">
-      </div>
-      <div class="caption">
-        The iterative refinement within our <em>Think-while-Edit</em> framework addresses various editing failures, improving spatial alignment, attribute preservation, and overall instruction adherence across diverse editing tasks.
-      </div>
+    <div class="caption">
+      <strong>Data construction pipeline.</strong> We construct our dataset through four sequential steps: (1) Trajectory Generation with GPT-4.1 Expert, (2) Trajectory Filter using scores, (3) Step-wise Filter to create training samples, and (4) Data Partition into SFT and RL datasets.
     </div>
-
-    <div class="vis-card">
-      <div class="vis-header" style="background: #E1F5FE; color: #0288D1;">
-        <i class="fas fa-brain"></i> The Thinking Process
-      </div>
-      <div class="image-container">
-        <img src="static/images/supp_vis.png" alt="Thinking Process">
-      </div>
-      <div class="caption">
-        <strong>Process of EditThinker.</strong> Each example showcases how the model iteratively critiques editing results, refines instructions, and repeats generation, progressively improving instruction-following accuracy.
-      </div>
+    <div class="content-text" style="margin-top: 20px;">
+        <p>To train EditThinker, we constructed <strong>ThinkEdit-140k</strong>. We employ reinforcement learning (RL) on difficult, high-variance trajectories to align EditThinker's reasoning with actual editing outcomes, while using SFT on stable trajectories for foundational capabilities.</p>
     </div>
+  </div>
 
+  <div class="section">
+    <h2 class="section-title">Performance</h2>
+    <div class="image-container">
+      <img src="static/images/performance.png" alt="Quantitative Results">
+    </div>
+    <div class="caption">
+      <strong>Quantitative Results on Benchmarks.</strong> Our approach shows large gains for existing editing methods (FLUX.1 Kontext, OmniGen2, Qwen-Image-Edit) across four image editing benchmarks (ImgEdit-Bench, GEdit-Bench, RISE-Bench, Kris-Bench).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Reasoning Process Visualization</h2>
+    <div class="image-container">
+      <img src="static/images/vis_reason.png" alt="Reasoning Visualization">
+    </div>
+    <div class="caption">
+      <strong>The Thinking Process.</strong> Visualization of EditThinker's reasoning traces and intermediate editing results. The model iteratively critiques errors (e.g., missing objects, wrong attributes) and refines the prompt until the user instruction is fulfilled.
+    </div>
   </div>
 
   <div class="section">
