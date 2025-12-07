@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Thinking-while-Generating: Interleaving Textual Reasoning throughout Visual Generation">
+  <meta name="description" content="EditThinker: Unlocking Iterative Reasoning for Any Image Editor">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thinking-while-Generating</title>
+  <title>EditThinker</title>
 
   <link rel="icon" href="static/images/logo4.png" type="image/png">
 
@@ -282,49 +282,56 @@
     <h1 class="title">
         <div class="main-title-row">
           <img src="static/images/logo4.png" alt="Logo" class="project-logo" style="height: 1.5em; width: auto;">
-          <span class="title-main">Thinking-while-Generating:</span>
+          <span class="title-main">EditThinker:</span>
         </div>
-        <span class="title-sub">Interleaving Textual Reasoning throughout Visual Generation</span>
+        <span class="title-sub">Unlocking Iterative Reasoning for Any Image Editor</span>
     </h1>
     
     <div class="author-block">
-      <span><a href="https://ziyuguo99.github.io/" target="_blank">Ziyu Guo</a><sup>*1</sup></span>,
-      <span><a href="https://zrrskywalker.github.io/" target="_blank">Renrui Zhang</a><sup>†*2</sup></span>,
-      <span><a href="https://scholar.google.cz/citations?user=PccL82sAAAAJ" target="_blank">Hongyu Li</a><sup>*3</sup></span>,
-      <span><a href="https://manyuan97.github.io/" target="_blank">Manyuan Zhang</a><sup>†3</sup></span>,
-      <span><a href="https://scholar.google.com/citations?user=Ii38p5oAAAAJ" target="_blank">Xinyan Chen</a><sup>2</sup></span>
+      <span><a href="https://scholar.google.cz/citations?user=PccL82sAAAAJ" target="_blank">Hongyu Li</a><sup>1,2</sup></span>,
+      <span><a href="https://manyuan97.github.io/" target="_blank">Manyuan Zhang</a><sup>2</sup><sup style="color: #E67E22;">†</sup></span>,
+      <span>Dian Zheng<sup>2,3</sup></span>,
+      <span><a href="https://ziyuguo99.github.io/" target="_blank">Ziyu Guo</a><sup>2,4</sup></span>,
+      <span>Yimeng Jia<sup>2</sup></span>
     </div>
     
     <div class="author-block">
-      <span>Sifan Wang</span>,
-      <span><a href="https://scholar.google.com/citations?user=m4f3F4cAAAAJ" target="_blank">Yan Feng</a><sup>3</sup></span>,
-      <span><a href="https://www.linkedin.com/in/peng-pei-7584a839/" target="_blank">Peng Pei</a><sup>3</sup></span>,
-      <span><a href="https://appsrv.cse.cuhk.edu.hk/~pheng" target="_blank">Pheng-Ann Heng</a><sup>1</sup></span>
+      <span>Kaituo Feng<sup>2,3</sup></span>,
+      <span>Hao Yu<sup>5</sup></span>,
+      <span>Yexin Liu<sup>2</sup></span>,
+      <span><a href="https://scholar.google.com/citations?user=m4f3F4cAAAAJ" target="_blank">Yan Feng</a><sup>2</sup></span>,
+      <span><a href="https://www.linkedin.com/in/peng-pei-7584a839/" target="_blank">Peng Pei</a><sup>2</sup></span>
     </div>
 
+    <div class="author-block">
+      <span>Xunliang Cai<sup>2</sup></span>,
+      <span>Linjiang Huang<sup>1</sup></span>,
+      <span>Hongsheng Li<sup>3</sup></span>,
+      <span>Si Liu<sup>1</sup><sup style="color: #E67E22;">*</sup></span>
+    </div>
 
     <div class="affiliation-block">
-      <div><sup>1</sup>CUHK IMIXR &nbsp;&&nbsp; <sup>2</sup>MMLab &nbsp; <sup>3</sup>Meituan</div>
-      <div class="note"><sup>*</sup>Equal Contribution &nbsp; <sup>†</sup>Project Lead</div>
+      <div><sup>1</sup>Beihang University &nbsp; <sup>2</sup>Meituan &nbsp; <sup>3</sup>CUHK MMLab &nbsp; <sup>4</sup>CUHK IMIXR &nbsp; <sup>5</sup>Tsinghua University</div>
+      <div class="note"><sup>†</sup>Project Leader &nbsp; <sup>*</sup>Corresponding Author</div>
     </div>
 
     <div class="publication-links">
       <span class="link-block">
-        <a href="https://arxiv.org/abs/2511.16671" target="_blank">
+        <a href="#" target="_blank">
           <span class="icon"><i class="fas fa-file-pdf"></i></span>
           <span>Paper</span>
         </a>
       </span>
       <span class="link-block">
-        <a href="https://github.com/ZiyuGuo99/Thinking-while-Generating" target="_blank">
+        <a href="#" target="_blank">
           <span class="icon"><i class="fab fa-github"></i></span>
           <span>Code</span>
         </a>
       </span>
       <span class="link-block">
-        <a href="https://github.com/ZiyuGuo99/Thinking-while-Generating" target="_blank">
+        <a href="#" target="_blank">
           <span class="icon"><i class="fas fa-database"></i></span>
-          <span>TwiG-50K Dataset</span>
+          <span>ThinkEdit-140K Dataset</span>
         </a>
       </span>
     </div>
@@ -335,7 +342,7 @@
       <img src="static/images/teaser.gif" alt="Teaser Image" class="teaser-img">
     </div>
     <div class="caption">
-      <strong>Interleaving Textual Reasoning throughout Visual Generation.</strong> We weave textual thoughts into the unfolding canvas, delivering on-the-fly guidance and reflection throughout synthesis.
+      <strong>Overview of EditThinker.</strong> Our multi-turn <em>Think-while-Edit</em> pipeline iteratively critiques, refines, and repeats the editing instruction, significantly improving instruction-following capability for any image editor.
     </div>
   </div>
 
@@ -343,13 +350,13 @@
     <h2 class="section-title">Abstract</h2>
     <div class="content-text">
       <p>
-        Recent advances in visual generation have increasingly explored the integration of reasoning capabilities. They incorporate textual reasoning, i.e., <em>think</em>, either before (as pre-planning) or after (as post-refinement) the generation process, yet they lack on-the-fly multimodal interaction during the generation itself.
+        Instruction-based image editing has emerged as a prominent research area, which, benefiting from image generation foundation models, have achieved high aesthetic quality, making instruction-following capability the primary challenge. Existing approaches improve instruction adherence via supervised or reinforcement learning, yet single-turn success rates remain limited due to inherent stochasticity and a lack of deliberation.
       </p>
       <p>
-        In this preliminary study, we introduce <i><span class="highlight-term">Thinking-while-Generating (TwiG)</span></i>, the first interleaved framework that enables <strong>co-evolving textual reasoning</strong> throughout the visual generation process. As visual content is progressively generating, textual reasoning is interleaved to both <strong>guide upcoming local regions</strong> and <strong>reflect on previously synthesized ones</strong>. This dynamic interplay produces more context-aware and semantically rich visual outputs.
+        In this work, we propose a deliberative editing framework to "think" while they edit, which simulates the human cognitive loop by iteratively executing a <strong><em>Think-while-Edit</em></strong> cycle: <strong>Critiquing</strong> results and <strong>Refining</strong> instructions, followed by <strong>Repeating</strong> the generation until satisfactory. Specifically, we train a single MLLM, <span class="highlight-term">EditThinker</span>, to act as the reasoning engine of this framework, which jointly produce the critique score, reasoning process, and refined instructions. We employ reinforcement learning to align the EditThinker's thinking with its editing, thereby generating more targeted instruction improvements.
       </p>
       <p>
-        To unveil the potential of this framework, we investigate three candidate strategies: <strong>zero-shot prompting</strong>, <strong>supervised fine-tuning (SFT)</strong> on our curated TwiG-50K dataset, and <strong>reinforcement learning (RL)</strong> via a customized TwiG-GRPO strategy.
+        Extensive experiments on four benchmarks demonstrate that our approach significantly improves the instruction-following capability of any image editing model by a large margin. 
       </p>
     </div>
   </div>
@@ -359,10 +366,10 @@
       <img src="static/images/intro.png" alt="Intro Comparison" style="width: 100%;">
     </div>
     <div class="caption">
-        <strong>Comparison of <span style="color: #333;">Where</span> the Textual Reasoning is Applied:</strong><br>
-        (a) <span style="color: #0288D1; font-weight: bold;">Think-before-Generation</span> injects a pre-planning thought prior to synthesis, limiting fine-grained control.<br>
-        (b) <span style="color: #27ae60; font-weight: bold;">Think-after-Generation</span> verifies and revises the image only after completion, lacking timely adjustment.<br>
-        (c) Our <span style="color: #E67E22; font-weight: bold;">Thinking-while-Generating</span> interleaves thoughts and reflections throughout synthesis for on-the-fly guidance.
+        <strong>Comparison of Editing Paradigms:</strong><br>
+        (a) <span style="color: #0288D1; font-weight: bold;">Think-before-Edit</span> rewrites an optimized prompt using only the source image, limiting iterative refinement.<br>
+        (b) <span style="color: #27ae60; font-weight: bold;">Single-turn Edit</span> directly produces the final edited image without deliberation, lacking self-correction capability.<br>
+        (c) Our <span style="color: #E67E22; font-weight: bold;">Think-while-Edit</span> iteratively critiques results, refines instructions, and repeats generation until satisfactory outcomes.
     </div>
   </div>
 
@@ -370,40 +377,40 @@
     <h2 class="section-title">Framework</h2>
     
     <div class="image-container">
-      <img src="static/images/pipeline.png" alt="TwiG Pipeline">
+      <img src="static/images/pipeline.png" alt="EditThinker Pipeline">
     </div>
     <div class="caption">
-      <strong>Overall Pipeline.</strong> TwiG decouples generation into scheduling, reasoning, and reflection.
+      <strong>Overall Pipeline.</strong> EditThinker decouples editing into two roles: a Thinker for judging and reasoning, and an Editor for execution. The Thinker iteratively critiques, refines, and repeats until satisfactory.
     </div>
 
     <div class="method-grid">
         <div class="method-card method-think">
-          <span class="badge" style="background: var(--color-think); color: #555;">Scheduling</span>
-          <h3>When to Think</h3>
+          <span class="badge" style="background: var(--color-think); color: #555;">Critique</span>
+          <h3>Evaluate Results</h3>
           <p>
-            The model determines an interleaved reasoning schedule $\mathcal{S}$ to decouple the generation process into controllable sub-tasks.
+            At iteration $t$, EditThinker receives the state $(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s)$ and jointly evaluates the previous edit, generating critique score $S_t$ and reasoning process $R_t$.
             <br><br>
-            $$ \mathcal{S} = \mathrm{ULM}_{u}(T) $$
+            $$ S_t = \text{EditThinker}(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s) $$
           </p>
         </div>
     
         <div class="method-card method-gen">
-          <span class="badge" style="background: var(--color-gen);">Reasoning</span>
-          <h3>What to Say</h3>
+          <span class="badge" style="background: var(--color-gen);">Refine</span>
+          <h3>Refine Instructions</h3>
           <p>
-            At each step $k$, a textual thought $\tau_k$ is generated to guide the local visual region $\mathcal{V}_k$, conditioned on all previous context.
+            Based on the critique, EditThinker generates a refined instruction $T_t$ that addresses identified deficiencies, creating an explicit chain of thought that grounds instruction refinement in visual critique.
             <br><br>
-            $$ \tau_k = \mathrm{ULM}_{u}(T, \{\tau_j\}_{j \lt k}, \{\mathcal{V}_j\}_{j \lt k}) $$
+            $$ T_t = \text{EditThinker}(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s) $$
           </p>
         </div>
     
         <div class="method-card method-ref">
-          <span class="badge" style="background: var(--color-ref);">Reflection</span>
-          <h3>How to Refine</h3>
+          <span class="badge" style="background: var(--color-ref);">Repeat</span>
+          <h3>Iterate Until Satisfactory</h3>
           <p>
-            Before the next step, a critique $ c_k = (r_k, \hat{\tau}_{k}) $ is generated, where $r_k$ is a critic score for region $\mathcal{V}_k$ and $\hat{\tau}_{k}$ is a revised caption. If the score is low, a local reflection is triggered to refine the region $\hat{\mathcal{V}}_k$.
+            The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success or maximum iterations are reached.
             <br><br>
-            $$ c_k = \mathrm{ULM}_{u}(T, \{\tau_j\}_{j \leq k}, \{\mathcal{V}_j\}_{j \leq k}) $$
+            $$ I_{edit}^t = \text{Editor}(I_{src}, T_t) $$
           </p>
         </div>
       </div>
@@ -420,7 +427,7 @@
         <img src="static/images/comp.png" alt="Comparison">
       </div>
       <div class="caption">
-        Comparison of the baseline (Janus-Pro-7B), TwiG-ZS, -SFT, and <strong>TwiG-RL</strong>. Our method demonstrates progressive improvements in compositional fidelity, object counting, and visual realism.
+        Comparison of baseline editing models (FLUX.1-Kontext, OmniGen2, Qwen-Image-Edit) with and without <strong>EditThinker</strong>. Our framework demonstrates consistent improvements in instruction-following capability across diverse editing scenarios.
       </div>
     </div>
 
@@ -432,7 +439,7 @@
         <img src="static/images/reflect.png" alt="Reflection">
       </div>
       <div class="caption">
-        The reflection within our <em>Thinking-while-Generating</em> refines both semantic and visual consistency, e.g., improving spatial alignment, shadow coherence, and overall realism across diverse prompts.
+        The iterative refinement within our <em>Think-while-Edit</em> framework addresses various editing failures, improving spatial alignment, attribute preservation, and overall instruction adherence across diverse editing tasks.
       </div>
     </div>
 
@@ -444,7 +451,7 @@
         <img src="static/images/supp_vis.png" alt="Thinking Process">
       </div>
       <div class="caption">
-        <strong>Process of TwiG-RL.</strong> Each example showcases how the model iteratively interleaves its textual reasoning and visual outputs, progressively improving compositional accuracy.
+        <strong>Process of EditThinker.</strong> Each example showcases how the model iteratively critiques editing results, refines instructions, and repeats generation, progressively improving instruction-following accuracy.
       </div>
     </div>
 
@@ -452,16 +459,16 @@
 
   <div class="section">
     <h2 class="section-title">BibTeX</h2>
-    <pre><code>@article{guo2026thinking,
-  title={Thinking-while-Generating: Interleaving Textual Reasoning throughout Visual Generation},
-  author={Guo, Ziyu and Zhang, Renrui and Li, Hongyu and Zhang, Manyuan and Chen, Xinyan and Wang, Sifan and Feng, Yan and Pei, Peng and Heng, Pheng-Ann},
-  journal={arXiv:2511.16671},
-  year={2025}
+    <pre><code>@article{li2026editthinker,
+  title={EditThinker: Unlocking Iterative Reasoning for Any Image Editor},
+  author={Li, Hongyu and Zhang, Manyuan and Zheng, Dian and Guo, Ziyu and Jia, Yimeng and Feng, Kaituo and Yu, Hao and Liu, Yexin and Feng, Yan and Pei, Peng and Cai, Xunliang and Huang, Linjiang and Li, Hongsheng and Liu, Si},
+  journal={CVPR},
+  year={2026}
 }</code></pre>
   </div>
 
   <footer style="text-align: center; padding: 30px 0; color: #999; font-size: 0.9rem;">
-    <p>Copyright &copy; 2026 TwiG Project. </p>
+    <p>Copyright &copy; 2026 EditThinker Project. </p>
   </footer>
 
 </div>
