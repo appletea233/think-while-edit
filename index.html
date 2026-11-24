@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="EditThinker: Unlocking Iterative Reasoning for Any Image Editor">
+  <meta name="description" content="EditThinker: Enhancing Image Editors via Iterative Reasoning with a Plug-and-Play VLM">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EditThinker: Unlocking Iterative Reasoning for Any Image Editor</title>
+  <title>EditThinker: Enhancing Image Editors via Iterative Reasoning with a Plug-and-Play VLM</title>
 
   <link rel="icon" href="static/images/logo.png" type="image/png">
 
@@ -30,10 +30,10 @@
       /* --- Theme Color: Blue --- */
       --color-primary: #64B5F6;      /* Light Blue for highlights/accents */
       --color-primary-dark: #1565C0; /* Deep Blue for text/hover */
-      
+
       --color-text: #2c3e50;
       --color-bg: #FAFAFA;
-      
+
       /* Method Card Colors (Adjusted slightly to match cool tone) */
       --color-think: #FDD835; /* Keep Yellow for 'Think' distinctness */
       --color-gen: #4DD0E1;   /* Cyan */
@@ -57,9 +57,9 @@
     }
 
     /* --- Header Layout --- */
-    .header-container { 
-      text-align: center; 
-      margin-bottom: 40px; 
+    .header-container {
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     .title {
@@ -144,22 +144,22 @@
       height: 1.5em;
       object-fit: contain;
     }
-    
-    .title-main { 
-      color: var(--color-primary-dark); 
+
+    .title-main {
+      color: var(--color-primary-dark);
     }
-    .title-sub { 
-      color: #000000; 
-      font-size: 0.65em; 
-      display: block; 
-      margin-top: 8px; 
+    .title-sub {
+      color: #000000;
+      font-size: 0.65em;
+      display: block;
+      margin-top: 8px;
       font-weight: 500;
     }
 
     .author-block { font-size: 1.15rem; margin-bottom: 8px; }
     .author-block a { color: #222; text-decoration: none; border-bottom: 1px dotted #888; transition: 0.2s; }
     .author-block a:hover { color: var(--color-primary-dark); }
-    
+
     .affiliation-block { font-size: 1rem; color: #666; margin-bottom: 2rem; }
     .note { font-size: 0.85rem; color: #999; }
 
@@ -225,7 +225,7 @@
       border-radius: 8px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-    
+
     .caption {
       font-size: 0.95rem;
       color: #666;
@@ -239,7 +239,7 @@
     /* --- Method Grid --- */
     .method-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); 
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 30px;
     }
@@ -252,7 +252,7 @@
       transition: transform 0.2s;
       display: flex;
       flex-direction: column;
-      height: 100%; 
+      height: 100%;
       box-sizing: border-box;
       position: relative;
     }
@@ -261,38 +261,38 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
-    
+
     .method-think { border-top: 5px solid var(--color-think); }
     .method-gen   { border-top: 5px solid var(--color-gen); }
     .method-ref   { border-top: 5px solid var(--color-ref); }
 
-    .method-card h3 { 
-      margin-top: 0; 
-      font-size: 1.25rem; 
-      color: #333; 
+    .method-card h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+      color: #333;
       margin-bottom: 15px;
-      min-height: 1.5em; 
+      min-height: 1.5em;
     }
 
     .method-card p {
-      flex-grow: 1; 
+      flex-grow: 1;
       margin-bottom: 0;
     }
-    
+
     .badge {
-      display: inline-block; 
-      padding: 4px 10px; 
+      display: inline-block;
+      padding: 4px 10px;
       border-radius: 6px;
-      font-size: 0.75rem; 
-      font-weight: bold; 
-      text-transform: uppercase; 
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 10px; 
+      margin-bottom: 10px;
       color: #fff;
       white-space: nowrap;
       width: fit-content;
     }
-    
+
     /* Visualizations */
     .vis-card {
       margin-bottom: 40px;
@@ -335,21 +335,49 @@
       .container { padding: 20px 15px; }
       .method-grid { grid-template-columns: 1fr; }
     }
+
+    .results-scroll { overflow-x: auto; max-width: 100%; border: 1px solid #dbe4ee; border-radius: 8px; }
+    .results-scroll:focus-visible { outline: 3px solid var(--color-primary-dark); outline-offset: 3px; }
+    .results-table { width: 100%; min-width: 1100px; border-collapse: collapse; font-size: .875rem; line-height: 1.5; font-variant-numeric: tabular-nums; color: #283646; }
+    .results-table caption { text-align: left; padding: 16px; font-size: 1rem; color: #4a4a4a; }
+    .results-table th, .results-table td { padding: 8px 10px; text-align: right; white-space: nowrap; border-bottom: 1px solid #e9eef4; }
+    .results-table thead th { background: #eaf3fc; text-align: center; color: #173d65; }
+    .results-table tbody th { text-align: left; font-weight: 400; }
+    .results-table .model-group th, .results-table tr.model-group th { background: #e7f0fa; text-align: left; font-weight: 700; color: #173d65; }
+    .results-table .pair-start th, .results-table .pair-start td { border-top: 2px solid #bfd0e2; }
+    .results-table .delta-positive { color: #1c703e; }
+    .results-table .delta-negative { color: #a62e2e; }
+    .results-table .delta-row th, .results-table .delta-row td { background: #f6f9fc; }
+    .results-table strong { font-weight: 700; }
+    @media (min-width: 1280px) {
+      #results { margin-left: -90px; margin-right: -90px; }
+    }
+    .table-help { font-size: .875rem; color: #526170; margin: 12px 0 0; }
+    .qualitative-hero img { display: block; width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+    .demo-arrow:focus-visible { outline: 3px solid var(--color-primary-dark); outline-offset: 3px; }
+    .note, pre, .badge { font-size: .875rem; }
+    @media (max-width: 768px) {
+      .section { padding: 22px 16px; }
+      .content-text { text-align: left; font-size: 1rem; }
+      .caption { max-width: 100%; }
+      .author-block { font-size: 1rem; }
+      .vis-card { padding: 22px 12px; }
+      .main-title-row { flex-direction: row; }
+      .title-sub { font-size: .7em; line-height: 1.4; }
+    }
   </style>
 </head>
 <body>
-
-<div class="container">
-
+<main class="container">
   <div class="header-container">
     <h1 class="title">
-        <div class="main-title-row">
+        <span class="main-title-row">
           <img src="static/images/logo.png" alt="Logo" class="project-logo">
           <span class="title-main">EditThinker</span>
-        </div>
-        <span class="title-sub">Unlocking Iterative Reasoning for Any Image Editor</span>
+        </span>
+        <span class="title-sub">Enhancing Image Editors via Iterative Reasoning with a Plug-and-Play VLM</span>
     </h1>
-    
+
     <div class="author-block">
       <span>
         <a href="https://scholar.google.com/citations?user=PccL82sAAAAJ"
@@ -368,10 +396,10 @@
         <a href="https://scholar.google.com/citations?user=S9GLetwAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">Ziyu Guo</a><sup>2,4</sup>
       </span>,
       <span>
-        <a href="#" target="_blank" rel="noopener noreferrer">Yimeng Jia</a><sup>2</sup>
+        <span>Yimeng Jia</span><sup>2</sup>
       </span>
     </div>
-    
+
     <div class="author-block">
       <span>
         <a href="https://scholar.google.com/citations?user=m1iCh00AAAAJ"
@@ -383,26 +411,26 @@
       </span>,
       <span>
         <a href="https://scholar.google.com/citations?hl=en&user=Y8zBpcoAAAAJ" target="_blank" rel="noopener noreferrer">Yexin Liu</a><sup>2</sup>
-        <!-- TODO: add Yexin Liu's Scholar link if available -->
+
       </span>,
       <span>
         <a href="https://scholar.google.com/citations?user=m4f3F4cAAAAJ"
            target="_blank" rel="noopener noreferrer">Yan Feng</a><sup>2</sup>
       </span>,
       <span>
-        <a href="#" target="_blank" rel="noopener noreferrer">Peng Pei</a><sup>2</sup>
-        <!-- 多个同名 Scholar，暂时不敢乱配，可以之后自己确认再填 -->
+        <span>Peng Pei</span><sup>2</sup>
+
       </span>
     </div>
-    
+
     <div class="author-block">
       <span>
         <a href="https://scholar.google.com/citations?hl=en&user=ZEAfy1QAAAAJ" target="_blank" rel="noopener noreferrer">Xunliang Cai</a><sup>2</sup>
-        <!-- TODO: add Xunliang Cai's Scholar link if available -->
+
       </span>,
       <span>
         <a href="https://scholar.google.com/citations?user=j5rBSw0AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer">Linjiang Huang</a><sup>1</sup>
-        <!-- TODO: add Linjiang Huang's Scholar link if available -->
+
       </span>,
       <span>
         <a href="https://scholar.google.com/citations?user=BN2Ze-QAAAAJ"
@@ -414,7 +442,7 @@
         <sup>1</sup><sup style="color: var(--color-primary-dark);">*</sup>
       </span>
     </div>
-    
+
     <div class="affiliation-block">
       <div>
         <sup>1</sup>Beihang University &nbsp;
@@ -428,7 +456,7 @@
         <sup>*</sup>Corresponding Author
       </div>
     </div>
-    
+
 
     <div class="publication-links">
       <span class="link-block">
@@ -452,124 +480,604 @@
       <span class="link-block">
         <a href="https://github.com/appletea233/EditThinker" target="_blank">
           <span class="icon"><i class="fas fa-database"></i></span>
-          <span>ThinkEdit-140K</span>
+          <span>ThinkEdit-167k</span>
         </a>
       </span>
     </div>
   </div>
 
-  <div class="section">
+  <section class="section qualitative-hero" aria-label="Qualitative editing examples">
+    <div class="image-container">
+      <img src="static/images/qualitative-edits.webp" width="2400" height="1825" alt="Four iterative editing trajectories showing preserved umbrella texture, bubble styling, readable street signs, and a cartoon cat, with abbreviated prompts and critiques.">
+    </div>
+    <p class="caption"><strong>Editing through visual feedback.</strong> EditThinker critiques intermediate results and refines instructions for the next round. Source images, edits, and abbreviated prompts and critiques are shown.</p>
+  </section>
+  <section class="section" id="abstract">
+    <h2 class="section-title">Abstract</h2>
+    <div class="content-text"><p>Image editors can produce realistic images while still failing to satisfy the requested changes. Improving their instruction following requires identifying these failures and translating visual feedback into instructions that the editor can execute. We introduce EditThinker, an 8B vision-language model (VLM) that enhances existing image editors through iterative reasoning while keeping their weights fixed. EditThinker jointly critiques semantic consistency and visual quality, reasons about editing failures, and refines the instruction in a structured response. It interacts with the editor through a Critique-Refine-Repeat loop, providing a plug-and-play interface for feedback-driven editing. Learning effective refinements requires more than imitating plausible expert suggestions: the instructions must work with the capabilities of the underlying editor. We therefore combine supervised fine-tuning on expert demonstrations with reinforcement learning from executed editing outcomes, using format, critic, and edit rewards. To support this training, we construct ThinkEdit-167k, a dataset of 167k step-wise samples with unified supervision for critique, reasoning, and instruction refinement. Across four tested editors, EditThinker improves overall scores on GEdit-Bench-EN, ImgEdit-Bench, RISE-Bench, and KRIS-Bench. Ablations examine the joint model design, data allocation, and training across VLM backbones. In our GEdit round-budget study, refinement achieves higher scores with fewer editor calls than best-of-N selection. We will release our data construction framework, datasets, and models.</p></div>
+  </section>
+  <section class="section" id="framework">
+    <h2 class="section-title">Framework: Critique-Refine-Repeat</h2>
+    <div class="image-container"><img src="static/images/fig2.png" alt="EditThinker Critique-Refine-Repeat pipeline" loading="lazy"></div>
+    <p class="caption"><strong>Critique-Refine-Repeat pipeline.</strong> The editor first applies the original instruction $T_s$ to the source image $I_{src}$. EditThinker then predicts semantic consistency and visual quality scores, reasons about editing failures, and refines the instruction. The fixed editor applies each refined instruction to the original source image.</p>
+    <div class="method-grid">
+      <div class="method-card method-think"><span class="badge" style="background: var(--color-think); color: #333;">Critique</span><h3>Evaluate Results</h3><p>Given the source image, the previous edit, and the original and previous instructions, EditThinker reasons about the current result and predicts its semantic consistency and visual quality scores.</p></div>
+      <div class="method-card method-gen"><span class="badge" style="background: var(--color-gen); color: #173d48;">Refine</span><h3>Refine Instructions</h3><p>The same 8B VLM generates a revised instruction from this visual critique. The fixed editor applies the revised instruction to $I_{src}$ to produce the next edited image.</p></div>
+      <div class="method-card method-ref"><span class="badge" style="background: var(--color-ref); color: #fff;">Repeat</span><h3>Use Feedback Across Rounds</h3><p>The loop stops when the geometric mean of the predicted semantic and quality scores reaches 8, or after at most five editing rounds by default.</p></div>
+    </div>
+    <div class="content-text"><p><strong>Two-stage training.</strong> Supervised fine-tuning learns the structured reasoning, scoring, and instruction-refinement response from GPT-4.1 demonstrations. Reinforcement learning then uses format, critic, and edit rewards from executed editing outcomes while keeping the image editor fixed.</p></div>
+  </section>
+  <section class="section" id="dataset">
+    <h2 class="section-title">Data Construction: ThinkEdit-167k</h2>
+    <div class="image-container"><img src="static/images/fig3.png" alt="Trajectory generation, trajectory filtering, step-wise filtering, and SFT/RL data partition" loading="lazy"></div>
+    <p class="caption"><strong>Data construction pipeline.</strong> Expert-guided editing generates trajectories, which are scored, filtered for improvement, and truncated at their best step. We extract step-wise samples, balance task and score distributions, and partition them for SFT and RL.</p>
+    <div class="content-text">
+      <p>ThinkEdit-167k contains <strong>140k step-wise SFT samples</strong> from stable, high-quality trajectories and <strong>27k step-wise RL samples</strong> from challenging, high-variance trajectories. GPT-4.1 provides expert demonstrations and scores intermediate edits for training.</p>
+      <p>Data construction starts from 140k editing instances sampled from OpenGPT-4o-Image, ShareGPT-4o-Image, and Pico-Banana-400K. Trajectory filtering retains 70k trajectories; 60k are used to construct the SFT samples and 10k to construct the RL samples.</p>
+    </div>
+  </section>
+  <section class="section" id="results">
+    <h2 class="section-title">Main Results</h2>
+    <div class="content-text"><p>Adding EditThinker-8B improves all four editors' overall scores on GEdit-Bench-EN, ImgEdit-Bench, RISE-Bench, and KRIS-Bench. Each reproduced editor is paired with its EditThinker-8B counterpart below.</p></div>
+    <div class="results-scroll" role="region" aria-label="Image editing benchmark results, scroll horizontally to see all benchmarks" tabindex="0">
+<table class="results-table" aria-describedby="main-results-note">
+  <caption>Image editing benchmark results</caption>
+  <thead>
+    <tr>
+      <th id="results-model" scope="col" rowspan="2">Model</th>
+      <th id="results-gedit" scope="colgroup" colspan="3">GEdit-Bench-EN</th>
+      <th id="results-imgedit" scope="colgroup" colspan="1">ImgEdit-Bench</th>
+      <th id="results-rise" scope="colgroup" colspan="5">RISE-Bench</th>
+      <th id="results-kris" scope="colgroup" colspan="1">KRIS-Bench</th>
+    </tr>
+    <tr>
+      <th id="results-gedit-sc" scope="col" headers="results-gedit">G_SC</th>
+      <th id="results-gedit-pq" scope="col" headers="results-gedit">G_PQ</th>
+      <th id="results-gedit-overall" scope="col" headers="results-gedit">G_O</th>
+      <th id="results-imgedit-overall" scope="col" headers="results-imgedit">Overall</th>
+      <th id="results-rise-temporal" scope="col" headers="results-rise">Temporal</th>
+      <th id="results-rise-causal" scope="col" headers="results-rise">Causal</th>
+      <th id="results-rise-spatial" scope="col" headers="results-rise">Spatial</th>
+      <th id="results-rise-logical" scope="col" headers="results-rise">Logical</th>
+      <th id="results-rise-overall" scope="col" headers="results-rise">Overall</th>
+      <th id="results-kris-overall" scope="col" headers="results-kris">Overall</th>
+    </tr>
+  </thead>
+  <tbody aria-labelledby="results-group-1">
+    <tr class="model-group"><th id="results-group-1" colspan="11" scope="rowgroup">Open-source Models</th></tr>
+    <tr>
+      <th id="results-row-1" scope="row" headers="results-group-1">OmniGen</th>
+      <td headers="results-row-1 results-gedit results-gedit-sc">5.96</td>
+      <td headers="results-row-1 results-gedit results-gedit-pq">5.89</td>
+      <td headers="results-row-1 results-gedit results-gedit-overall">5.06</td>
+      <td headers="results-row-1 results-imgedit results-imgedit-overall">2.96</td>
+      <td headers="results-row-1 results-rise results-rise-temporal">1.2</td>
+      <td headers="results-row-1 results-rise results-rise-causal">1.0</td>
+      <td headers="results-row-1 results-rise results-rise-spatial">0.0</td>
+      <td headers="results-row-1 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-1 results-rise results-rise-overall">0.8</td>
+      <td headers="results-row-1 results-kris results-kris-overall">28.85</td>
+    </tr>
+    <tr>
+      <th id="results-row-2" scope="row" headers="results-group-1">Step1X-Edit</th>
+      <td headers="results-row-2 results-gedit results-gedit-sc">7.09</td>
+      <td headers="results-row-2 results-gedit results-gedit-pq">6.76</td>
+      <td headers="results-row-2 results-gedit results-gedit-overall">6.70</td>
+      <td headers="results-row-2 results-imgedit results-imgedit-overall">3.06</td>
+      <td headers="results-row-2 results-rise results-rise-temporal">0.0</td>
+      <td headers="results-row-2 results-rise results-rise-causal">2.2</td>
+      <td headers="results-row-2 results-rise results-rise-spatial">2.0</td>
+      <td headers="results-row-2 results-rise results-rise-logical">3.5</td>
+      <td headers="results-row-2 results-rise results-rise-overall">1.9</td>
+      <td headers="results-row-2 results-kris results-kris-overall">43.29</td>
+    </tr>
+    <tr>
+      <th id="results-row-3" scope="row" headers="results-group-1">ICEdit</th>
+      <td headers="results-row-3 results-gedit results-gedit-sc">4.94</td>
+      <td headers="results-row-3 results-gedit results-gedit-pq">7.39</td>
+      <td headers="results-row-3 results-gedit results-gedit-overall">4.87</td>
+      <td headers="results-row-3 results-imgedit results-imgedit-overall">3.05</td>
+      <td headers="results-row-3 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-3 results-rise results-rise-causal">-</td>
+      <td headers="results-row-3 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-3 results-rise results-rise-logical">-</td>
+      <td headers="results-row-3 results-rise results-rise-overall">-</td>
+      <td headers="results-row-3 results-kris results-kris-overall">40.70</td>
+    </tr>
+    <tr>
+      <th id="results-row-4" scope="row" headers="results-group-1">HiDream-E1</th>
+      <td headers="results-row-4 results-gedit results-gedit-sc">5.66</td>
+      <td headers="results-row-4 results-gedit results-gedit-pq">6.06</td>
+      <td headers="results-row-4 results-gedit results-gedit-overall">5.01</td>
+      <td headers="results-row-4 results-imgedit results-imgedit-overall">3.17</td>
+      <td headers="results-row-4 results-rise results-rise-temporal">0.0</td>
+      <td headers="results-row-4 results-rise results-rise-causal">0.0</td>
+      <td headers="results-row-4 results-rise results-rise-spatial">0.0</td>
+      <td headers="results-row-4 results-rise results-rise-logical">0.0</td>
+      <td headers="results-row-4 results-rise results-rise-overall">0.0</td>
+      <td headers="results-row-4 results-kris results-kris-overall">44.72</td>
+    </tr>
+    <tr>
+      <th id="results-row-5" scope="row" headers="results-group-1">BAGEL</th>
+      <td headers="results-row-5 results-gedit results-gedit-sc">7.36</td>
+      <td headers="results-row-5 results-gedit results-gedit-pq">6.83</td>
+      <td headers="results-row-5 results-gedit results-gedit-overall">6.52</td>
+      <td headers="results-row-5 results-imgedit results-imgedit-overall">3.20</td>
+      <td headers="results-row-5 results-rise results-rise-temporal">2.4</td>
+      <td headers="results-row-5 results-rise results-rise-causal">5.6</td>
+      <td headers="results-row-5 results-rise results-rise-spatial">14.0</td>
+      <td headers="results-row-5 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-5 results-rise results-rise-overall">6.1</td>
+      <td headers="results-row-5 results-kris results-kris-overall">56.40</td>
+    </tr>
+    <tr>
+      <th id="results-row-6" scope="row" headers="results-group-1">BAGEL (w/ CoT)</th>
+      <td headers="results-row-6 results-gedit results-gedit-sc">7.70</td>
+      <td headers="results-row-6 results-gedit results-gedit-pq">6.51</td>
+      <td headers="results-row-6 results-gedit results-gedit-overall">6.66</td>
+      <td headers="results-row-6 results-imgedit results-imgedit-overall">3.56</td>
+      <td headers="results-row-6 results-rise results-rise-temporal">5.9</td>
+      <td headers="results-row-6 results-rise results-rise-causal">17.8</td>
+      <td headers="results-row-6 results-rise results-rise-spatial">21.0</td>
+      <td headers="results-row-6 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-6 results-rise results-rise-overall">11.9</td>
+      <td headers="results-row-6 results-kris results-kris-overall">60.41</td>
+    </tr>
+    <tr>
+      <th id="results-row-7" scope="row" headers="results-group-1">OmniGen2</th>
+      <td headers="results-row-7 results-gedit results-gedit-sc">7.16</td>
+      <td headers="results-row-7 results-gedit results-gedit-pq">6.77</td>
+      <td headers="results-row-7 results-gedit results-gedit-overall">6.41</td>
+      <td headers="results-row-7 results-imgedit results-imgedit-overall">3.44</td>
+      <td headers="results-row-7 results-rise results-rise-temporal">0.0</td>
+      <td headers="results-row-7 results-rise results-rise-causal">2.2</td>
+      <td headers="results-row-7 results-rise results-rise-spatial">7.0</td>
+      <td headers="results-row-7 results-rise results-rise-logical">2.3</td>
+      <td headers="results-row-7 results-rise results-rise-overall">3.0</td>
+      <td headers="results-row-7 results-kris results-kris-overall">49.71</td>
+    </tr>
+    <tr>
+      <th id="results-row-8" scope="row" headers="results-group-1">Ovis-U1</th>
+      <td headers="results-row-8 results-gedit results-gedit-sc">-</td>
+      <td headers="results-row-8 results-gedit results-gedit-pq">-</td>
+      <td headers="results-row-8 results-gedit results-gedit-overall">6.42</td>
+      <td headers="results-row-8 results-imgedit results-imgedit-overall">4.00</td>
+      <td headers="results-row-8 results-rise results-rise-temporal">1.2</td>
+      <td headers="results-row-8 results-rise results-rise-causal">3.3</td>
+      <td headers="results-row-8 results-rise results-rise-spatial">4.0</td>
+      <td headers="results-row-8 results-rise results-rise-logical">2.4</td>
+      <td headers="results-row-8 results-rise results-rise-overall">2.8</td>
+      <td headers="results-row-8 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-9" scope="row" headers="results-group-1">FLUX.1-Kontext [Dev]</th>
+      <td headers="results-row-9 results-gedit results-gedit-sc">6.52</td>
+      <td headers="results-row-9 results-gedit results-gedit-pq">7.38</td>
+      <td headers="results-row-9 results-gedit results-gedit-overall">6.00</td>
+      <td headers="results-row-9 results-imgedit results-imgedit-overall">3.52</td>
+      <td headers="results-row-9 results-rise results-rise-temporal">2.3</td>
+      <td headers="results-row-9 results-rise results-rise-causal">5.5</td>
+      <td headers="results-row-9 results-rise results-rise-spatial">13.0</td>
+      <td headers="results-row-9 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-9 results-rise results-rise-overall">5.8</td>
+      <td headers="results-row-9 results-kris results-kris-overall">49.54</td>
+    </tr>
+    <tr>
+      <th id="results-row-10" scope="row" headers="results-group-1">UniWorld-V1</th>
+      <td headers="results-row-10 results-gedit results-gedit-sc">4.93</td>
+      <td headers="results-row-10 results-gedit results-gedit-pq">7.43</td>
+      <td headers="results-row-10 results-gedit results-gedit-overall">4.85</td>
+      <td headers="results-row-10 results-imgedit results-imgedit-overall">3.26</td>
+      <td headers="results-row-10 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-10 results-rise results-rise-causal">-</td>
+      <td headers="results-row-10 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-10 results-rise results-rise-logical">-</td>
+      <td headers="results-row-10 results-rise results-rise-overall">2.22</td>
+      <td headers="results-row-10 results-kris results-kris-overall">50.27</td>
+    </tr>
+    <tr>
+      <th id="results-row-11" scope="row" headers="results-group-1">Step1X-Edit v1.1</th>
+      <td headers="results-row-11 results-gedit results-gedit-sc">7.66</td>
+      <td headers="results-row-11 results-gedit results-gedit-pq">7.35</td>
+      <td headers="results-row-11 results-gedit results-gedit-overall">6.97</td>
+      <td headers="results-row-11 results-imgedit results-imgedit-overall">3.90</td>
+      <td headers="results-row-11 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-11 results-rise results-rise-causal">-</td>
+      <td headers="results-row-11 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-11 results-rise results-rise-logical">-</td>
+      <td headers="results-row-11 results-rise results-rise-overall">-</td>
+      <td headers="results-row-11 results-kris results-kris-overall">51.59</td>
+    </tr>
+    <tr>
+      <th id="results-row-12" scope="row" headers="results-group-1">Qwen-Image-Edit</th>
+      <td headers="results-row-12 results-gedit results-gedit-sc">8.00</td>
+      <td headers="results-row-12 results-gedit results-gedit-pq">7.86</td>
+      <td headers="results-row-12 results-gedit results-gedit-overall">7.56</td>
+      <td headers="results-row-12 results-imgedit results-imgedit-overall">4.27</td>
+      <td headers="results-row-12 results-rise results-rise-temporal">4.7</td>
+      <td headers="results-row-12 results-rise results-rise-causal">10.0</td>
+      <td headers="results-row-12 results-rise results-rise-spatial">17.0</td>
+      <td headers="results-row-12 results-rise results-rise-logical">2.4</td>
+      <td headers="results-row-12 results-rise results-rise-overall">8.9</td>
+      <td headers="results-row-12 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-13" scope="row" headers="results-group-1">Qwen-Image-Edit-2509</th>
+      <td headers="results-row-13 results-gedit results-gedit-sc">8.15</td>
+      <td headers="results-row-13 results-gedit results-gedit-pq">7.86</td>
+      <td headers="results-row-13 results-gedit results-gedit-overall">7.54</td>
+      <td headers="results-row-13 results-imgedit results-imgedit-overall">4.35</td>
+      <td headers="results-row-13 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-13 results-rise results-rise-causal">-</td>
+      <td headers="results-row-13 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-13 results-rise results-rise-logical">-</td>
+      <td headers="results-row-13 results-rise results-rise-overall">-</td>
+      <td headers="results-row-13 results-kris results-kris-overall">63.71</td>
+    </tr>
+    <tr>
+      <th id="results-row-14" scope="row" headers="results-group-1">Qwen-Image-Edit-2511</th>
+      <td headers="results-row-14 results-gedit results-gedit-sc">8.30</td>
+      <td headers="results-row-14 results-gedit results-gedit-pq">8.20</td>
+      <td headers="results-row-14 results-gedit results-gedit-overall">7.88</td>
+      <td headers="results-row-14 results-imgedit results-imgedit-overall">4.51</td>
+      <td headers="results-row-14 results-rise results-rise-temporal">21.2</td>
+      <td headers="results-row-14 results-rise results-rise-causal">18.9</td>
+      <td headers="results-row-14 results-rise results-rise-spatial">31.0</td>
+      <td headers="results-row-14 results-rise results-rise-logical">4.7</td>
+      <td headers="results-row-14 results-rise results-rise-overall">19.4</td>
+      <td headers="results-row-14 results-kris results-kris-overall">62.04</td>
+    </tr>
+    <tr>
+      <th id="results-row-15" scope="row" headers="results-group-1">Uni-CoT</th>
+      <td headers="results-row-15 results-gedit results-gedit-sc">7.91</td>
+      <td headers="results-row-15 results-gedit results-gedit-pq">6.24</td>
+      <td headers="results-row-15 results-gedit results-gedit-overall">6.74</td>
+      <td headers="results-row-15 results-imgedit results-imgedit-overall">3.65</td>
+      <td headers="results-row-15 results-rise results-rise-temporal">8.2</td>
+      <td headers="results-row-15 results-rise results-rise-causal">18.9</td>
+      <td headers="results-row-15 results-rise results-rise-spatial">20.0</td>
+      <td headers="results-row-15 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-15 results-rise results-rise-overall">12.5</td>
+      <td headers="results-row-15 results-kris results-kris-overall">68.00</td>
+    </tr>
+    <tr>
+      <th id="results-row-16" scope="row" headers="results-group-1">UniWorld-V2</th>
+      <td headers="results-row-16 results-gedit results-gedit-sc">8.39</td>
+      <td headers="results-row-16 results-gedit results-gedit-pq">8.02</td>
+      <td headers="results-row-16 results-gedit results-gedit-overall">7.83</td>
+      <td headers="results-row-16 results-imgedit results-imgedit-overall">4.49</td>
+      <td headers="results-row-16 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-16 results-rise results-rise-causal">-</td>
+      <td headers="results-row-16 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-16 results-rise results-rise-logical">-</td>
+      <td headers="results-row-16 results-rise results-rise-overall">-</td>
+      <td headers="results-row-16 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-17" scope="row" headers="results-group-1">FireRed-Image-Edit-1.0</th>
+      <td headers="results-row-17 results-gedit results-gedit-sc">8.36</td>
+      <td headers="results-row-17 results-gedit results-gedit-pq">8.25</td>
+      <td headers="results-row-17 results-gedit results-gedit-overall">7.94</td>
+      <td headers="results-row-17 results-imgedit results-imgedit-overall">4.56</td>
+      <td headers="results-row-17 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-17 results-rise results-rise-causal">-</td>
+      <td headers="results-row-17 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-17 results-rise results-rise-logical">-</td>
+      <td headers="results-row-17 results-rise results-rise-overall">-</td>
+      <td headers="results-row-17 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-18" scope="row" headers="results-group-1">JoyAI-Image-Edit</th>
+      <td headers="results-row-18 results-gedit results-gedit-sc">8.83</td>
+      <td headers="results-row-18 results-gedit results-gedit-pq">8.12</td>
+      <td headers="results-row-18 results-gedit results-gedit-overall">8.28</td>
+      <td headers="results-row-18 results-imgedit results-imgedit-overall">4.46</td>
+      <td headers="results-row-18 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-18 results-rise results-rise-causal">-</td>
+      <td headers="results-row-18 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-18 results-rise results-rise-logical">-</td>
+      <td headers="results-row-18 results-rise results-rise-overall">-</td>
+      <td headers="results-row-18 results-kris results-kris-overall">63.44</td>
+    </tr>
+  </tbody>
+  <tbody aria-labelledby="results-group-2">
+    <tr class="model-group"><th id="results-group-2" colspan="11" scope="rowgroup">Proprietary Models</th></tr>
+    <tr>
+      <th id="results-row-19" scope="row" headers="results-group-2">Gemini 2.0 Flash Image</th>
+      <td headers="results-row-19 results-gedit results-gedit-sc">6.87</td>
+      <td headers="results-row-19 results-gedit results-gedit-pq">7.44</td>
+      <td headers="results-row-19 results-gedit results-gedit-overall">6.51</td>
+      <td headers="results-row-19 results-imgedit results-imgedit-overall">-</td>
+      <td headers="results-row-19 results-rise results-rise-temporal">8.2</td>
+      <td headers="results-row-19 results-rise results-rise-causal">15.5</td>
+      <td headers="results-row-19 results-rise results-rise-spatial">23.0</td>
+      <td headers="results-row-19 results-rise results-rise-logical">4.7</td>
+      <td headers="results-row-19 results-rise results-rise-overall">13.3</td>
+      <td headers="results-row-19 results-kris results-kris-overall">62.41</td>
+    </tr>
+    <tr>
+      <th id="results-row-20" scope="row" headers="results-group-2">GPT-Image-1</th>
+      <td headers="results-row-20 results-gedit results-gedit-sc">7.74</td>
+      <td headers="results-row-20 results-gedit results-gedit-pq">8.13</td>
+      <td headers="results-row-20 results-gedit results-gedit-overall">7.49</td>
+      <td headers="results-row-20 results-imgedit results-imgedit-overall">4.20</td>
+      <td headers="results-row-20 results-rise results-rise-temporal">34.1</td>
+      <td headers="results-row-20 results-rise results-rise-causal">32.2</td>
+      <td headers="results-row-20 results-rise results-rise-spatial">37.0</td>
+      <td headers="results-row-20 results-rise results-rise-logical">10.6</td>
+      <td headers="results-row-20 results-rise results-rise-overall">28.9</td>
+      <td headers="results-row-20 results-kris results-kris-overall">80.09</td>
+    </tr>
+    <tr>
+      <th id="results-row-21" scope="row" headers="results-group-2">GPT-Image-1.5</th>
+      <td headers="results-row-21 results-gedit results-gedit-sc">-</td>
+      <td headers="results-row-21 results-gedit results-gedit-pq">-</td>
+      <td headers="results-row-21 results-gedit results-gedit-overall">-</td>
+      <td headers="results-row-21 results-imgedit results-imgedit-overall">4.66</td>
+      <td headers="results-row-21 results-rise results-rise-temporal">54.1</td>
+      <td headers="results-row-21 results-rise results-rise-causal">60.0</td>
+      <td headers="results-row-21 results-rise results-rise-spatial">62.0</td>
+      <td headers="results-row-21 results-rise results-rise-logical">21.2</td>
+      <td headers="results-row-21 results-rise results-rise-overall">50.0</td>
+      <td headers="results-row-21 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-22" scope="row" headers="results-group-2">Seedream-4.0</th>
+      <td headers="results-row-22 results-gedit results-gedit-sc">8.14</td>
+      <td headers="results-row-22 results-gedit results-gedit-pq">8.12</td>
+      <td headers="results-row-22 results-gedit results-gedit-overall">7.70</td>
+      <td headers="results-row-22 results-imgedit results-imgedit-overall">4.30</td>
+      <td headers="results-row-22 results-rise results-rise-temporal">12.9</td>
+      <td headers="results-row-22 results-rise results-rise-causal">12.2</td>
+      <td headers="results-row-22 results-rise results-rise-spatial">11.0</td>
+      <td headers="results-row-22 results-rise results-rise-logical">7.1</td>
+      <td headers="results-row-22 results-rise results-rise-overall">10.8</td>
+      <td headers="results-row-22 results-kris results-kris-overall">77.31</td>
+    </tr>
+    <tr>
+      <th id="results-row-23" scope="row" headers="results-group-2">Seedream-4.5</th>
+      <td headers="results-row-23 results-gedit results-gedit-sc">8.27</td>
+      <td headers="results-row-23 results-gedit results-gedit-pq">8.17</td>
+      <td headers="results-row-23 results-gedit results-gedit-overall">7.82</td>
+      <td headers="results-row-23 results-imgedit results-imgedit-overall">4.32</td>
+      <td headers="results-row-23 results-rise results-rise-temporal">-</td>
+      <td headers="results-row-23 results-rise results-rise-causal">-</td>
+      <td headers="results-row-23 results-rise results-rise-spatial">-</td>
+      <td headers="results-row-23 results-rise results-rise-logical">-</td>
+      <td headers="results-row-23 results-rise results-rise-overall">-</td>
+      <td headers="results-row-23 results-kris results-kris-overall">-</td>
+    </tr>
+    <tr>
+      <th id="results-row-24" scope="row" headers="results-group-2">Gemini 2.5 Flash Image</th>
+      <td headers="results-row-24 results-gedit results-gedit-sc">7.40</td>
+      <td headers="results-row-24 results-gedit results-gedit-pq">8.45</td>
+      <td headers="results-row-24 results-gedit results-gedit-overall">7.29</td>
+      <td headers="results-row-24 results-imgedit results-imgedit-overall">4.29</td>
+      <td headers="results-row-24 results-rise results-rise-temporal">25.9</td>
+      <td headers="results-row-24 results-rise results-rise-causal">47.8</td>
+      <td headers="results-row-24 results-rise results-rise-spatial">37.0</td>
+      <td headers="results-row-24 results-rise results-rise-logical">18.8</td>
+      <td headers="results-row-24 results-rise results-rise-overall">32.8</td>
+      <td headers="results-row-24 results-kris results-kris-overall">78.17</td>
+    </tr>
+    <tr>
+      <th id="results-row-25" scope="row" headers="results-group-2">Nano Banana Pro</th>
+      <td headers="results-row-25 results-gedit results-gedit-sc">8.10</td>
+      <td headers="results-row-25 results-gedit results-gedit-pq">8.34</td>
+      <td headers="results-row-25 results-gedit results-gedit-overall">7.74</td>
+      <td headers="results-row-25 results-imgedit results-imgedit-overall">4.37</td>
+      <td headers="results-row-25 results-rise results-rise-temporal">41.2</td>
+      <td headers="results-row-25 results-rise results-rise-causal">61.1</td>
+      <td headers="results-row-25 results-rise results-rise-spatial">48.0</td>
+      <td headers="results-row-25 results-rise results-rise-logical">37.6</td>
+      <td headers="results-row-25 results-rise results-rise-overall">47.2</td>
+      <td headers="results-row-25 results-kris results-kris-overall">85.31</td>
+    </tr>
+  </tbody>
+  <tbody aria-labelledby="results-group-3">
+    <tr class="model-group"><th id="results-group-3" colspan="11" scope="rowgroup">EditThinker</th></tr>
+    <tr class="pair-start">
+      <th id="results-row-26" scope="row" headers="results-group-3">OmniGen2<sup>‡</sup></th>
+      <td headers="results-row-26 results-gedit results-gedit-sc">6.47</td>
+      <td headers="results-row-26 results-gedit results-gedit-pq">7.04</td>
+      <td headers="results-row-26 results-gedit results-gedit-overall">6.03</td>
+      <td headers="results-row-26 results-imgedit results-imgedit-overall">3.41</td>
+      <td headers="results-row-26 results-rise results-rise-temporal">2.4</td>
+      <td headers="results-row-26 results-rise results-rise-causal">1.1</td>
+      <td headers="results-row-26 results-rise results-rise-spatial"><strong>7.0</strong></td>
+      <td headers="results-row-26 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-26 results-rise results-rise-overall">3.1</td>
+      <td headers="results-row-26 results-kris results-kris-overall">50.52</td>
+    </tr>
+    <tr class="editthinker-row">
+      <th id="results-row-27" scope="row" headers="results-group-3" aria-label="OmniGen2 + EditThinker-8B">+ EditThinker-8B</th>
+      <td headers="results-row-27 results-gedit results-gedit-sc"><strong>6.65</strong></td>
+      <td headers="results-row-27 results-gedit results-gedit-pq"><strong>7.44</strong></td>
+      <td headers="results-row-27 results-gedit results-gedit-overall"><strong>6.42</strong></td>
+      <td headers="results-row-27 results-imgedit results-imgedit-overall"><strong>3.67</strong></td>
+      <td headers="results-row-27 results-rise results-rise-temporal"><strong>3.5</strong></td>
+      <td headers="results-row-27 results-rise results-rise-causal"><strong>10.0</strong></td>
+      <td headers="results-row-27 results-rise results-rise-spatial">5.0</td>
+      <td headers="results-row-27 results-rise results-rise-logical"><strong>3.5</strong></td>
+      <td headers="results-row-27 results-rise results-rise-overall"><strong>5.6</strong></td>
+      <td headers="results-row-27 results-kris results-kris-overall"><strong>53.09</strong></td>
+    </tr>
+    <tr class="delta-row">
+      <th id="results-row-28" scope="row" headers="results-group-3" aria-label="OmniGen2 change with EditThinker-8B">Δ</th>
+      <td headers="results-row-28 results-gedit results-gedit-sc" class="delta-positive">+0.18</td>
+      <td headers="results-row-28 results-gedit results-gedit-pq" class="delta-positive">+0.40</td>
+      <td headers="results-row-28 results-gedit results-gedit-overall" class="delta-positive">+0.39</td>
+      <td headers="results-row-28 results-imgedit results-imgedit-overall" class="delta-positive">+0.26</td>
+      <td headers="results-row-28 results-rise results-rise-temporal" class="delta-positive">+1.1</td>
+      <td headers="results-row-28 results-rise results-rise-causal" class="delta-positive">+8.9</td>
+      <td headers="results-row-28 results-rise results-rise-spatial" class="delta-negative">−2.0</td>
+      <td headers="results-row-28 results-rise results-rise-logical" class="delta-positive">+2.3</td>
+      <td headers="results-row-28 results-rise results-rise-overall" class="delta-positive">+2.5</td>
+      <td headers="results-row-28 results-kris results-kris-overall" class="delta-positive">+2.57</td>
+    </tr>
+    <tr class="pair-start">
+      <th id="results-row-29" scope="row" headers="results-group-3">FLUX.1-Kontext [Dev]<sup>‡</sup></th>
+      <td headers="results-row-29 results-gedit results-gedit-sc">6.62</td>
+      <td headers="results-row-29 results-gedit results-gedit-pq">7.61</td>
+      <td headers="results-row-29 results-gedit results-gedit-overall">6.18</td>
+      <td headers="results-row-29 results-imgedit results-imgedit-overall">3.36</td>
+      <td headers="results-row-29 results-rise results-rise-temporal">2.3</td>
+      <td headers="results-row-29 results-rise results-rise-causal">5.5</td>
+      <td headers="results-row-29 results-rise results-rise-spatial">13.0</td>
+      <td headers="results-row-29 results-rise results-rise-logical">1.2</td>
+      <td headers="results-row-29 results-rise results-rise-overall">5.8</td>
+      <td headers="results-row-29 results-kris results-kris-overall">61.81</td>
+    </tr>
+    <tr class="editthinker-row">
+      <th id="results-row-30" scope="row" headers="results-group-3" aria-label="FLUX.1-Kontext [Dev] + EditThinker-8B">+ EditThinker-8B</th>
+      <td headers="results-row-30 results-gedit results-gedit-sc"><strong>7.59</strong></td>
+      <td headers="results-row-30 results-gedit results-gedit-pq"><strong>7.63</strong></td>
+      <td headers="results-row-30 results-gedit results-gedit-overall"><strong>7.02</strong></td>
+      <td headers="results-row-30 results-imgedit results-imgedit-overall"><strong>4.07</strong></td>
+      <td headers="results-row-30 results-rise results-rise-temporal"><strong>12.9</strong></td>
+      <td headers="results-row-30 results-rise results-rise-causal"><strong>16.6</strong></td>
+      <td headers="results-row-30 results-rise results-rise-spatial"><strong>25.0</strong></td>
+      <td headers="results-row-30 results-rise results-rise-logical"><strong>5.8</strong></td>
+      <td headers="results-row-30 results-rise results-rise-overall"><strong>15.5</strong></td>
+      <td headers="results-row-30 results-kris results-kris-overall"><strong>69.53</strong></td>
+    </tr>
+    <tr class="delta-row">
+      <th id="results-row-31" scope="row" headers="results-group-3" aria-label="FLUX.1-Kontext [Dev] change with EditThinker-8B">Δ</th>
+      <td headers="results-row-31 results-gedit results-gedit-sc" class="delta-positive">+0.97</td>
+      <td headers="results-row-31 results-gedit results-gedit-pq" class="delta-positive">+0.02</td>
+      <td headers="results-row-31 results-gedit results-gedit-overall" class="delta-positive">+0.84</td>
+      <td headers="results-row-31 results-imgedit results-imgedit-overall" class="delta-positive">+0.71</td>
+      <td headers="results-row-31 results-rise results-rise-temporal" class="delta-positive">+10.6</td>
+      <td headers="results-row-31 results-rise results-rise-causal" class="delta-positive">+11.1</td>
+      <td headers="results-row-31 results-rise results-rise-spatial" class="delta-positive">+12.0</td>
+      <td headers="results-row-31 results-rise results-rise-logical" class="delta-positive">+4.6</td>
+      <td headers="results-row-31 results-rise results-rise-overall" class="delta-positive">+9.7</td>
+      <td headers="results-row-31 results-kris results-kris-overall" class="delta-positive">+7.72</td>
+    </tr>
+    <tr class="pair-start">
+      <th id="results-row-32" scope="row" headers="results-group-3">Qwen-Image-Edit<sup>‡</sup></th>
+      <td headers="results-row-32 results-gedit results-gedit-sc">8.01</td>
+      <td headers="results-row-32 results-gedit results-gedit-pq"><strong>7.87</strong></td>
+      <td headers="results-row-32 results-gedit results-gedit-overall">7.49</td>
+      <td headers="results-row-32 results-imgedit results-imgedit-overall">4.36</td>
+      <td headers="results-row-32 results-rise results-rise-temporal">4.7</td>
+      <td headers="results-row-32 results-rise results-rise-causal">10.0</td>
+      <td headers="results-row-32 results-rise results-rise-spatial">17.0</td>
+      <td headers="results-row-32 results-rise results-rise-logical">2.4</td>
+      <td headers="results-row-32 results-rise results-rise-overall">8.9</td>
+      <td headers="results-row-32 results-kris results-kris-overall">64.43</td>
+    </tr>
+    <tr class="editthinker-row">
+      <th id="results-row-33" scope="row" headers="results-group-3" aria-label="Qwen-Image-Edit + EditThinker-8B">+ EditThinker-8B</th>
+      <td headers="results-row-33 results-gedit results-gedit-sc"><strong>8.30</strong></td>
+      <td headers="results-row-33 results-gedit results-gedit-pq">7.86</td>
+      <td headers="results-row-33 results-gedit results-gedit-overall"><strong>7.73</strong></td>
+      <td headers="results-row-33 results-imgedit results-imgedit-overall"><strong>4.41</strong></td>
+      <td headers="results-row-33 results-rise results-rise-temporal"><strong>10.8</strong></td>
+      <td headers="results-row-33 results-rise results-rise-causal"><strong>23.3</strong></td>
+      <td headers="results-row-33 results-rise results-rise-spatial"><strong>27.0</strong></td>
+      <td headers="results-row-33 results-rise results-rise-logical"><strong>8.2</strong></td>
+      <td headers="results-row-33 results-rise results-rise-overall"><strong>17.8</strong></td>
+      <td headers="results-row-33 results-kris results-kris-overall"><strong>71.91</strong></td>
+    </tr>
+    <tr class="delta-row">
+      <th id="results-row-34" scope="row" headers="results-group-3" aria-label="Qwen-Image-Edit change with EditThinker-8B">Δ</th>
+      <td headers="results-row-34 results-gedit results-gedit-sc" class="delta-positive">+0.29</td>
+      <td headers="results-row-34 results-gedit results-gedit-pq" class="delta-negative">−0.01</td>
+      <td headers="results-row-34 results-gedit results-gedit-overall" class="delta-positive">+0.24</td>
+      <td headers="results-row-34 results-imgedit results-imgedit-overall" class="delta-positive">+0.05</td>
+      <td headers="results-row-34 results-rise results-rise-temporal" class="delta-positive">+6.1</td>
+      <td headers="results-row-34 results-rise results-rise-causal" class="delta-positive">+13.3</td>
+      <td headers="results-row-34 results-rise results-rise-spatial" class="delta-positive">+10.0</td>
+      <td headers="results-row-34 results-rise results-rise-logical" class="delta-positive">+5.8</td>
+      <td headers="results-row-34 results-rise results-rise-overall" class="delta-positive">+8.9</td>
+      <td headers="results-row-34 results-kris results-kris-overall" class="delta-positive">+7.48</td>
+    </tr>
+    <tr class="pair-start">
+      <th id="results-row-35" scope="row" headers="results-group-3">Longcat-Image-Edit<sup>‡</sup></th>
+      <td headers="results-row-35 results-gedit results-gedit-sc">8.25</td>
+      <td headers="results-row-35 results-gedit results-gedit-pq"><strong>8.17</strong></td>
+      <td headers="results-row-35 results-gedit results-gedit-overall">7.81</td>
+      <td headers="results-row-35 results-imgedit results-imgedit-overall">4.53</td>
+      <td headers="results-row-35 results-rise results-rise-temporal">9.4</td>
+      <td headers="results-row-35 results-rise results-rise-causal">15.6</td>
+      <td headers="results-row-35 results-rise results-rise-spatial">17.0</td>
+      <td headers="results-row-35 results-rise results-rise-logical">4.7</td>
+      <td headers="results-row-35 results-rise results-rise-overall">11.9</td>
+      <td headers="results-row-35 results-kris results-kris-overall">67.52</td>
+    </tr>
+    <tr class="editthinker-row">
+      <th id="results-row-36" scope="row" headers="results-group-3" aria-label="Longcat-Image-Edit + EditThinker-8B">+ EditThinker-8B</th>
+      <td headers="results-row-36 results-gedit results-gedit-sc"><strong>8.44</strong></td>
+      <td headers="results-row-36 results-gedit results-gedit-pq"><strong>8.17</strong></td>
+      <td headers="results-row-36 results-gedit results-gedit-overall"><strong>8.00</strong></td>
+      <td headers="results-row-36 results-imgedit results-imgedit-overall"><strong>4.57</strong></td>
+      <td headers="results-row-36 results-rise results-rise-temporal"><strong>27.1</strong></td>
+      <td headers="results-row-36 results-rise results-rise-causal"><strong>28.9</strong></td>
+      <td headers="results-row-36 results-rise results-rise-spatial"><strong>24.0</strong></td>
+      <td headers="results-row-36 results-rise results-rise-logical"><strong>8.2</strong></td>
+      <td headers="results-row-36 results-rise results-rise-overall"><strong>22.2</strong></td>
+      <td headers="results-row-36 results-kris results-kris-overall"><strong>75.00</strong></td>
+    </tr>
+    <tr class="delta-row">
+      <th id="results-row-37" scope="row" headers="results-group-3" aria-label="Longcat-Image-Edit change with EditThinker-8B">Δ</th>
+      <td headers="results-row-37 results-gedit results-gedit-sc" class="delta-positive">+0.19</td>
+      <td headers="results-row-37 results-gedit results-gedit-pq">0.00</td>
+      <td headers="results-row-37 results-gedit results-gedit-overall" class="delta-positive">+0.19</td>
+      <td headers="results-row-37 results-imgedit results-imgedit-overall" class="delta-positive">+0.04</td>
+      <td headers="results-row-37 results-rise results-rise-temporal" class="delta-positive">+17.7</td>
+      <td headers="results-row-37 results-rise results-rise-causal" class="delta-positive">+13.3</td>
+      <td headers="results-row-37 results-rise results-rise-spatial" class="delta-positive">+7.0</td>
+      <td headers="results-row-37 results-rise results-rise-logical" class="delta-positive">+3.5</td>
+      <td headers="results-row-37 results-rise results-rise-overall" class="delta-positive">+10.3</td>
+      <td headers="results-row-37 results-kris results-kris-overall" class="delta-positive">+7.48</td>
+    </tr>
+  </tbody>
+</table>
+<p id="main-results-note" class="results-note"><sup>‡</sup> denotes reproduced single-pass baselines with official checkpoints. Bold marks the highest score within each editor–EditThinker pair. Δ shows the change from the listed baseline. See Appendix A of the paper for KRIS-Bench details.</p>
+
+    </div>
+    <p class="table-help">Scroll horizontally to view all benchmark columns. Full evaluation settings and ablations are in the <a href="https://arxiv.org/abs/2512.05965" target="_blank" rel="noopener noreferrer">paper</a>.</p>
+  </section>
+  <div class="section" style="background: transparent; box-shadow: none; padding: 0;">
+    <h2 class="section-title">Visualizations</h2>
+  <div class="vis-card" id="animated-demos">
+    <h3>Iterative Editing Demos</h3>
     <div class="demo-carousel">
-      <!-- 左箭头 -->
-      <button class="demo-arrow demo-arrow-left" id="demo-prev">
+
+      <button class="demo-arrow demo-arrow-left" id="demo-prev" type="button" aria-label="Previous editing demo">
         <i class="fas fa-chevron-left"></i>
       </button>
 
-      <!-- 图片区域 -->
+
       <div class="demo-slides">
         <img class="demo-slide active" src="static/images/demo1.gif" alt="EditThinker Demo 1">
         <img class="demo-slide" src="static/images/demo2.gif" alt="EditThinker Demo 2">
       </div>
 
-      <!-- 右箭头 -->
-      <button class="demo-arrow demo-arrow-right" id="demo-next">
+
+      <button class="demo-arrow demo-arrow-right" id="demo-next" type="button" aria-label="Next editing demo">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
 
     <div class="caption">
-      <strong>Demo of EditThinker.</strong> The animation illustrates the multi-turn <em>Think-while-Edit</em> process. The model iteratively critiques the current generation, reasons about the gap, and refines the prompt until the stop signal is triggered.
+      <strong>Demo of EditThinker.</strong> These animations illustrate how EditThinker critiques intermediate edits and refines instructions over successive rounds.
     </div>
   </div>
 
 
-  <div class="section">
-    <h2 class="section-title">Abstract</h2>
-    <div class="content-text">
-      <p>
-        Instruction-based image editing has emerged as a prominent research area. Benefiting from image generation foundation models, it has achieved high aesthetic quality, making instruction-following capability the primary challenge. Existing approaches improve instruction adherence via supervised or reinforcement learning, yet single-turn success rates remain limited due to inherent stochasticity and a lack of deliberation.
-      </p>
-      <p>
-        In this work, we propose a deliberative editing framework to "think" while they edit, which simulates the human cognitive loop by iteratively executing a <strong><em>Think-while-Edit</em></strong> cycle: <span class="highlight-term">Critiquing</span> results and <span class="highlight-term">Refining</span> instructions, followed by <span class="highlight-term">Repeating</span> the generation until satisfactory. Specifically, we train a single MLLM, <strong>EditThinker</strong>, to act as the reasoning engine of this framework, which jointly produces the critique score, reasoning process, and refined instructions. We employ reinforcement learning to align the EditThinker's thinking with its editing, thereby generating more targeted instruction improvements.
-      </p>
-      <p>
-        Extensive experiments on four benchmarks demonstrate that our approach significantly improves the instruction-following capability of any image editing model by a large margin.
-      </p>
-    </div>
-  </div>
 
-  <div class="section">
-    <h2 class="section-title">Framework: Think-while-Edit</h2>
-    
-    <div class="image-container">
-      <img src="static/images/fig2.png" alt="EditThinker Pipeline">
-    </div>
-    <div class="caption">
-      <strong>The Pipeline of Think-while-Edit.</strong> EditThinker is a multi-round instruction iterative refinement framework. In the first round, the original image $I_{src}$ and instruction $T_s$ are fed into an editor. The output is fed into EditThinker, which generates the edit score $S_t$, refined prompt $T_t$, and reasoning process $R_t$.
-    </div>
-
-    <div class="method-grid">
-        <div class="method-card method-think">
-          <span class="badge" style="background: var(--color-think); color: #555;">Critique</span>
-          <h3>Evaluate Results</h3>
-          <p>
-            At iteration $t$, EditThinker receives the state $(I_{src}, I_{edit}^{t-1}, T_{t-1}, T_s)$ and jointly evaluates the previous edit, generating critique score $S_t$ and reasoning process $R_t$.
-          </p>
-        </div>
-    
-        <div class="method-card method-gen">
-          <span class="badge" style="background: var(--color-gen); color: #FFF;">Refine</span>
-          <h3>Refine Instructions</h3>
-          <p>
-            Based on the critique, EditThinker generates a refined instruction $T_t$ that addresses identified deficiencies, creating an explicit chain of thought that grounds instruction refinement in visual critique.
-          </p>
-        </div>
-    
-        <div class="method-card method-ref">
-          <span class="badge" style="background: var(--color-ref); color: #FFF;">Repeat</span>
-          <h3>Iterate Until Satisfactory</h3>
-          <p>
-            The Editor executes the refined instruction $T_t$ on $I_{src}$ to produce $I_{edit}^t$. This <strong>Critique-Refine-Repeat</strong> cycle continues until the score $S_t$ indicates success.
-          </p>
-        </div>
-      </div>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">Data Construction: ThinkEdit-140K</h2>
-    <div class="image-container">
-      <img src="static/images/fig3.png" alt="Data Construction Pipeline">
-    </div>
-    <div class="caption">
-      <strong>Data construction pipeline.</strong> We construct our dataset through four sequential steps: (1) Trajectory Generation with GPT-4.1 Expert, (2) Trajectory Filter using scores, (3) Step-wise Filter to create training samples, and (4) Data Partition into SFT and RL datasets.
-    </div>
-    <div class="content-text" style="margin-top: 20px;">
-        <p>To train EditThinker, we constructed <strong>ThinkEdit-140k</strong>. We employ reinforcement learning (RL) on difficult, high-variance trajectories to align EditThinker's reasoning with actual editing outcomes, while using SFT on stable trajectories for foundational capabilities.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 class="section-title">Performance</h2>
-    <div class="image-container">
-      <img src="static/images/performance.png" alt="Quantitative Results">
-    </div>
-    <div class="caption">
-      <strong>Quantitative Results on Benchmarks.</strong> Our approach shows large gains for existing editing methods (FLUX.1 Kontext, OmniGen2, Qwen-Image-Edit) across four image editing benchmarks (ImgEdit-Bench, GEdit-Bench, RISE-Bench, Kris-Bench).
-    </div>
-  </div>
-
-  <div class="section" style="background: transparent; box-shadow: none; padding: 0;">
-    <h2 class="section-title">Visualizations</h2>
 
     <div class="vis-card">
       <div class="vis-header" style="background: #E1F5FE; color: #0288D1;">
         <i class="fas fa-brain"></i> The Thinking Process
       </div>
       <div class="image-container">
-        <img src="static/images/vis_reason.png" alt="Reasoning Visualization">
+        <img src="static/images/vis_reason.png" alt="Iterative critiques and refined instructions with FLUX.1 Kontext" loading="lazy">
       </div>
       <div class="caption">
-        <strong>Thinking Process Visualization.</strong> EditThinker iteratively critiques errors (e.g., missing objects, wrong attributes) and refines the prompt until the user instruction is fulfilled.
+        <strong>Thinking Process Visualization.</strong> EditThinker critiques intermediate results and progressively refines the instruction over multiple rounds with FLUX.1 Kontext [Dev].
       </div>
     </div>
 
@@ -578,31 +1086,26 @@
          <i class="fas fa-images"></i> More Visualizations
       </div>
       <div class="image-container">
-        <img src="static/images/vis_all.png" alt="EditThinker Qualitative Results">
+        <img src="static/images/vis_all.png" alt="Baseline and EditThinker editing examples across multiple fixed editors" loading="lazy">
       </div>
       <div class="caption">
-        <strong>Qualitative Results.</strong> Our framework significantly improves instruction-following capability across diverse editing scenarios by iteratively critiquing and refining instructions compared to baseline models.
+        <strong>Qualitative Results.</strong> Examples show EditThinker combined with FLUX.1 Kontext [Dev], OmniGen2, and Qwen-Image-Edit across diverse editing tasks.
       </div>
     </div>
 
   </div>
 
-  <div class="section">
+  <section class="section" id="citation">
     <h2 class="section-title">BibTeX</h2>
     <pre><code>@article{li2025editthinker,
-  title={Editthinker: Unlocking iterative reasoning for any image editor},
-  author={Li, Hongyu and Zhang, Manyuan and Zheng, Dian and Guo, Ziyu and Jia, Yimeng and Feng, Kaituo and Yu, Hao and Liu, Yexin and Feng, Yan and Pei, Peng and others},
+  title={EditThinker: Enhancing Image Editors via Iterative Reasoning with a Plug-and-Play VLM},
+  author={Li, Hongyu and Zhang, Manyuan and Zheng, Dian and Guo, Ziyu and Jia, Yimeng and Feng, Kaituo and Yu, Hao and Liu, Yexin and Feng, Yan and Pei, Peng and Cai, Xunliang and Huang, Linjiang and Li, Hongsheng and Liu, Si},
   journal={arXiv preprint arXiv:2512.05965},
   year={2025}
 }</code></pre>
-  </div>
-
-  <footer style="text-align: center; padding: 30px 0; color: #999; font-size: 0.9rem;">
-    <p>Copyright &copy; 2026 EditThinker Project. </p>
-  </footer>
-
-</div>
-
+  </section>
+  <footer style="text-align: center; padding: 30px 0; color: #666; font-size: .9rem;"><p>Copyright &copy; 2026 EditThinker Project.</p></footer>
+</main>
 <script>
   (function() {
     const slides = document.querySelectorAll('.demo-slide');
@@ -627,6 +1130,7 @@
     });
   })();
 </script>
+
 
 
 </body>
